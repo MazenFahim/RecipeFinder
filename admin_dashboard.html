@@ -10,24 +10,37 @@
         <section>
             <h3>Manage Recipes</h3>
             <p>1-Add New Recipe</p>
-            <form> 
-                <label>Recipe ID:</label>
-                 <input type = "text" placeholder="Enter the recipe id"> 
-                 <br/> 
-                 <label>Recipe Name:</label> 
-                 <input type = "text" placeholder="Enter the recipe name" >
-                <br/> 
-                <label>Department:</label> 
-                <select name="Department" id="Department" placeholder="Enter the department"> 
-                    <option value="" disabled selected>Select department</option>
-                    <option value="1">main course</option> 
-                    <option value="2">appetizers</option>
-                    <option value="3">dessert</option>
-                </select> 
-                <br/>
-                <label>Ingredients:</label> 
-                <textarea name="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea> 
-            </form> 
+            <table>
+                <tr>
+                <td><label>Recipe ID: </label></td>
+                 <td><input type = "text" placeholder="Enter recipe ID (REC-001)"></td>
+                </tr>
+                <tr>
+                    <td><label>Recipe Name:</label></td>
+                    <td><input type = "text" placeholder="Enter the recipe name" ></td>
+
+                </tr>
+                    <tr>
+                        <td><label>Course:</label></td>
+                        <td><select name="Course" id="Course" placeholder="Choose the Course">
+                            <option value="" disabled selected>Select Course</option>
+                            <option value="1">Appetizers</option>
+                            <option value="2">Main Course</option>
+                            <option value="3">Dessert</option>
+                        </select></td>
+                    </tr>
+                <tr>
+                    <td><label>Ingredient ID:</label></td>
+                    <td><input type = "text" placeholder="Enter the Ingredient id"></td>
+                    <br/>
+                </tr>
+                <tr>
+                    <td><label>Ingredients:</label></td>
+                    <td><textarea name="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea>
+            </table></td><!--<textarea name="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea>
+                </table>-->
+            </tr>
+
             <hr>    
             <p>2-View All Recipes:</p>
             <input type="button" value="View">
