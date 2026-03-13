@@ -1,58 +1,36 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Admin Dashboard</title>
-    </head>
-    <body>
-        <header>
-            <h1>Admin Dashboard</h1>
-        </header>
-        <h2><i>Welcome, Admin!</i></h2>
-        <section>
-            <h3>Manage Recipes</h3>
-            <p>1-Add New Recipe</p>
-            <table>
-                <tr>
-                <td><label>Recipe ID: </label></td>
-                 <td><input type = "text" placeholder="Enter recipe ID (REC-001)"></td>
-                </tr>
-                <tr>
-                    <td><label>Recipe Name:</label></td>
-                    <td><input type = "text" placeholder="Enter the recipe name" ></td>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+<h2><i>Welcome, Admin!</i></h2>
 
-                </tr>
-                    <tr>
-                        <td><label>Course:</label></td>
-                        <td><select name="Course" id="Course" placeholder="Choose the Course">
-                            <option value="" disabled selected>Select Course</option>
-                            <option value="1">Appetizers</option>
-                            <option value="2">Main Course</option>
-                            <option value="3">Dessert</option>
-                        </select></td>
-                    </tr>
-                <tr>
-                    <td><label>Ingredient ID:</label></td>
-                    <td><input type = "text" placeholder="Enter the Ingredient id"></td>
-                    <br/>
-                </tr>
-                <tr>
-                    <td><label>Ingredients:</label></td>
-                    <td><textarea name="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea>
-            </table></td><!--<textarea name="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea>
-                </table>-->
-            </tr>
-
-            <hr>    
-            <p>2-View All Recipes:</p>
-            <input type="button" value="View">
-            <hr>
-            <p>3-Edit Recipe:</p>
-            <input type="button" value="Edit">
-            <hr>
-            <p>4-Delete Recipe:</p>
-            <input type="button" value="Delete">
-            <hr>
-            <input type="submit" value="Add"> 
-            <input type="reset" value="Reset"> 
-        </section>
-    </body>
+<section>
+    <h3>Manage Recipes</h3>
+    <ul>
+        <li>
+            <p>1- Add New Recipe:</p>
+            <a href="add-recipe.html"><button>Go to Add Recipe</button></a>
+        </li>
+        <hr>
+        <li>
+            <p>2- View All Recipes:</p>
+            <a href="view-recipe.html"><button>View</button> </a></li>
+        <hr>
+        <li>
+            <p>3- Edit Recipe:</p>
+            <a href="edit-recipe.html"><button>Go to Edit Recipe</button></a>
+        </li>
+        <hr>
+        <li>
+            <p>4- Delete Recipe:</p>
+            <button style="background-color: red; color: black;">
+                Delete</button> </li>
+    </ul>
+</section>
+</body>
 </html>
