@@ -1,2 +1,0 @@
-# RecipeFinder
-Web Dev Course

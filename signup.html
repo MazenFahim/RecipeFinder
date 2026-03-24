@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="signup.css">
-<body>
-    <nav style="background:#ff7300;padding:10px;">
-        <a href="index.html" style="color:white;margin-right:15px;">Home</a>
-        <a href="recipe-details.html" style="color:white;margin-right:15px;">Recipes</a>
-        <a href="favorites.html" style="color:white;margin-right:15px;">Favorites</a>
-        <a href="login.html" style="color:white;margin-right:15px;">Login</a>
-        <a href="signup.html" style="color:white;">Sign Up</a>
-    </nav>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <nav class="navbar">
+        <div class="nav-logo">
+            🍽️ RecipeFinder
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+
+        <div class="nav-search">
+            <input type="text" placeholder="Search recipes...">
+            <button>🔍</button>
+        </div>
+        </nav>
 
         <div class="sign-up-inputs">
             <span id="sign-up-text">Sign up</span>
@@ -34,5 +45,5 @@
             <label id="have-acc">Already have an account?</label>
             <a href="https://google.com" id="sign-in-btn" target="_blank">Sign in</a>
         </div>
-</body>
+    </body>
 </html>
