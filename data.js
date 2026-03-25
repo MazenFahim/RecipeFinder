@@ -3,7 +3,7 @@ const recipes = [
     name: "كشري",
     isVisible: true,
     image: "images/kushary.png",
-    desc: "أكلة الشارع المصري 🇪🇬",
+    desc: "أكلة الشارع المصري",
     ingredients: ["أرز", "مكرونة", "عدس", "صلصة طماطم", "بصل مقلي", "خل"],
     steps: [
       "اطهي الأرز والعدس معاً حتى ينضجا",
@@ -12,6 +12,7 @@ const recipes = [
       "اقلي البصل حتى يصبح مقرمشاً",
       "ارتبي الطبقات: أرز، مكرونة، صلصة، بصل"
     ],
+    country: "EG",
     time: "30 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -21,7 +22,7 @@ const recipes = [
     name: "ملوخية",
     isVisible: true,
     image: "images/Molokhia.png",
-    desc: "طبق مصري تقليدي 🇪🇬",
+    desc: "طبق مصري تقليدي",
     ingredients: ["أوراق ملوخية", "ثوم", "كزبرة", "دجاج", "مرق"],
     steps: [
       "اسلقي الدجاج حتى ينضج واحتفظي بالمرق",
@@ -30,6 +31,7 @@ const recipes = [
       "أضيفي الملوخية إلى المرق الساخن",
       "أضيفي تقلية الثوم وقدميها ساخنة مع الأرز"
     ],
+    country: "EG",
     time: "40 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -39,7 +41,7 @@ const recipes = [
     name: "طعمية",
     isVisible: true,
     image: "images/Taameya.png",
-    desc: "الفلافل المصري 🇪🇬",
+    desc: "الفلافل المصري",
     ingredients: ["فول مدمس", "بقدونس", "بصل", "كزبرة", "ثوم", "بهارات"],
     steps: [
       "انقعي الفول طوال الليل",
@@ -48,6 +50,7 @@ const recipes = [
       "اقلي في زيت عميق حتى يصبح ذهبياً",
       "قدمي مع الطحينة والسلطة"
     ],
+    country: "EG",
     time: "25 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -57,7 +60,7 @@ const recipes = [
     name: "حواوشي",
     isVisible: true,
     image: "images/hawawshi.png",
-    desc: "خبز بالحم المتبل 🇪🇬",
+    desc: "خبز بالحم المتبل",
     ingredients: ["خبز بلدي", "لحم مفروم", "بصل", "بهارات", "فلفل أخضر"],
     steps: [
       "افرمي البصل والفلفل وأضيفيهما للحم",
@@ -66,6 +69,7 @@ const recipes = [
       "اخبزي في الفرن أو على النار حتى يصبح ذهبياً",
       "قدمي ساخناً مع سلطة جرجير"
     ],
+    country: "EG",
     time: "35 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -75,7 +79,7 @@ const recipes = [
     name: "فول مدمس",
     isVisible: true,
     image: "images/ful_medames.png",
-    desc: "الفول المطبوخ ببطء 🇪🇬",
+    desc: "الفول المطبوخ ببطء",
     ingredients: ["فول مدمس", "زيت زيتون", "ليمون", "ثوم", "كمون"],
     steps: [
       "اسلقي الفول حتى يطرى تماماً",
@@ -84,6 +88,7 @@ const recipes = [
       "تبلي بالكمون والملح",
       "قدمي مع الخبز البلدي والبيض"
     ],
+    country: "EG",
     time: "45 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -93,7 +98,7 @@ const recipes = [
     name: "أم علي",
     isVisible: true,
     image: "images/om-ali.jpg",
-    desc: "حلوى مصرية شهيرة 🇪🇬",
+    desc: "حلوى مصرية شهيرة",
     ingredients: ["عجينة فلو", "حليب", "سكر", "مكسرات", "زبيب", "قشطة"],
     steps: [
       "اخبزي عجينة الفلو حتى تصبح مقرمشة",
@@ -102,6 +107,7 @@ const recipes = [
       "صبي خليط الحليب والسكر فوقها",
       "اخبزي حتى يتحمر السطح وقدمي ساخناً"
     ],
+    country: "EG",
     time: "40 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -111,7 +117,7 @@ const recipes = [
     name: "محشي كرنب",
     isVisible: true,
     image: "images/mahshy.jpg",
-    desc: "أوراق كرنب محشية 🇪🇬",
+    desc: "أوراق كرنب محشية",
     ingredients: ["كرنب", "أرز", "لحم مفروم", "طماطم", "بهارات", "عصير ليمون"],
     steps: [
       "سلقي أوراق الكرنب حتى تلين",
@@ -120,6 +126,7 @@ const recipes = [
       "رتبيها في قدر وأضيفي الطماطم والليمون",
       "اطبخي على نار هادئة لمدة ساعة"
     ],
+    country: "EG",
     time: "90 دقيقة",
     level: "صعب",
     price: "معقول",
@@ -129,7 +136,7 @@ const recipes = [
     name: "محشي ورق عنب",
     isVisible: true,
     image: "images/waraq-aenab.jpg",
-    desc: "ورق عنب محشي 🇪🇬",
+    desc: "ورق عنب محشي",
     ingredients: ["ورق عنب", "أرز", "لحم مفروم", "بهارات", "زيت", "ليمون"],
     steps: [
       "انقعي ورق العنب إن كان مجففاً",
@@ -138,6 +145,7 @@ const recipes = [
       "رتبيه في القدر وأضيفي الماء والليمون",
       "اطبخي على نار هادئة لمدة 45 دقيقة"
     ],
+    country: "EG",
     time: "75 دقيقة",
     level: "صعب",
     price: "معقول",
@@ -147,7 +155,7 @@ const recipes = [
     name: "مسخن",
     isVisible: true,
     image: "images/mesakhan.png",
-    desc: "دجاج بالبصل والزيت والسماق على خبز طابون 🇵🇸",
+    desc: "دجاج بالبصل والزيت والسماق على خبز طابون",
     ingredients: ["دجاج", "بصل", "زيت زيتون", "سماق", "بهارات سبع", "خبز طابون", "صنوبر"],
     steps: [
       "سلقي الدجاج مع البهارات واحتفظي بالمرق",
@@ -158,6 +166,7 @@ const recipes = [
       "غطي الدجاج بباقي البصل والصنوبر المحمص",
       "اخبزي في فرن على 200 درجة حتى يحمر الدجاج"
     ],
+    country: "PS",
     time: "70 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -167,7 +176,7 @@ const recipes = [
     name: "بامية باللحم",
     isVisible: true,
     image: "images/bamia_lahem.jpg",
-    desc: "يخنة البامية المصرية 🇪🇬",
+    desc: "يخنة البامية المصرية",
     ingredients: ["بامية", "لحم ضأن", "طماطم", "ثوم", "كزبرة", "بهارات"],
     steps: [
       "قلي اللحم حتى يحمر",
@@ -176,6 +185,7 @@ const recipes = [
       "أضيفي البامية والماء",
       "اطبخي على نار متوسطة حتى تنضج"
     ],
+    country: "EG",
     time: "60 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -185,7 +195,7 @@ const recipes = [
     name: "فتة",
     isVisible: true,
     image: "images/fatta.jpg",
-    desc: "طبق الاحتفالات المصري 🇪🇬",
+    desc: "طبق الاحتفالات المصري",
     ingredients: ["خبز بلدي", "أرز", "لحم", "صلصة طماطم", "ثوم", "خل"],
     steps: [
       "اطبخي الأرز واللحم",
@@ -194,6 +204,7 @@ const recipes = [
       "ارتبي الخبز ثم الأرز ثم اللحم في الطبق",
       "صبي الصلصة فوق الجميع وقدمي فوراً"
     ],
+    country: "EG",
     time: "90 دقيقة",
     level: "متوسط",
     price: "غالي",
@@ -203,7 +214,7 @@ const recipes = [
     name: "سمك مشوي بالطريقة المصرية",
     isVisible: true,
     image: "images/samak_mashwi.jpg",
-    desc: "سمك متبل على الفحم 🇪🇬",
+    desc: "سمك متبل على الفحم",
     ingredients: ["سمك بلطي", "كمون", "كزبرة", "ثوم", "ليمون", "زيت"],
     steps: [
       "نظفي السمك وأحدثي فيه شقوقاً",
@@ -212,6 +223,7 @@ const recipes = [
       "اشويه على الفحم أو في الفرن",
       "قدمي مع الطحينة والسلطة"
     ],
+    country: "EG",
     time: "50 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -221,7 +233,7 @@ const recipes = [
     name: "قلقاس بالذقنة",
     isVisible: true,
     image: "images/qolqas.jpg",
-    desc: "يخنة القلقاس المصرية 🇪🇬",
+    desc: "يخنة القلقاس المصرية",
     ingredients: ["قلقاس", "عرق لحم", "ذقنة", "ليمون", "ثوم", "كزبرة"],
     steps: [
       "قشري القلقاس وقطعيه",
@@ -230,6 +242,7 @@ const recipes = [
       "أضيفي القلقاس والليمون",
       "اطبخي لمدة 45 دقيقة حتى ينضج"
     ],
+    country: "EG",
     time: "60 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -239,7 +252,7 @@ const recipes = [
     name: "لسان عصفور بالدجاج",
     isVisible: true,
     image: "images/lisan_asfour.png",
-    desc: "مكرونة صغيرة بالدجاج 🇪🇬",
+    desc: "مكرونة صغيرة بالدجاج",
     ingredients: ["لسان عصفور", "دجاج", "بصل", "طماطم", "بهارات", "مرق"],
     steps: [
       "قلي البصل حتى يذبل",
@@ -248,6 +261,7 @@ const recipes = [
       "أضيفي المرق واتركيه يغلي",
       "أضيفي اللسان عصفور واطبخي حتى ينضج"
     ],
+    country: "EG",
     time: "45 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -257,7 +271,7 @@ const recipes = [
     name: "مسقعة",
     isVisible: true,
     image: "images/musaqaa.png",
-    desc: "يخنة الباذنجان المصرية 🇪🇬",
+    desc: "يخنة الباذنجان المصرية",
     ingredients: ["باذنجان", "لحم مفروم", "طماطم", "بصل", "ثوم", "بهارات"],
     steps: [
       "اقلي الباذنجان المقطع حتى يحمر",
@@ -266,6 +280,7 @@ const recipes = [
       "ارتبي طبقات الباذنجان واللحم في القدر",
       "اطبخي على نار هادئة 30 دقيقة"
     ],
+    country: "EG",
     time: "50 دقيقة",
     level: "متوسط",
     price: "رخيص",
@@ -275,7 +290,7 @@ const recipes = [
     name: "شوربة عدس",
     isVisible: true,
     image: "images/shorbet_adas.png",
-    desc: "شوربة العدس الدافئة 🇪🇬",
+    desc: "شوربة العدس الدافئة",
     ingredients: ["عدس أحمر", "بصل", "ثوم", "كمون", "ليمون", "زيت"],
     steps: [
       "قلي البصل والثوم حتى يذهب",
@@ -284,6 +299,7 @@ const recipes = [
       "اخلطي بالخلاط حتى تصبح ناعمة",
       "أضيفي الكمون والليمون وقدمي مع الخبز"
     ],
+    country: "EG",
     time: "30 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -293,7 +309,7 @@ const recipes = [
     name: "جلاش",
     isVisible: true,
     image: "images/golash.png",
-    desc: "فطائر رقيقة باللحم 🇪🇬",
+    desc: "فطائر رقيقة باللحم",
     ingredients: ["عجين رقاق", "لحم مفروم", "بصل", "بهارات", "سمن"],
     steps: [
       "قلي اللحم مع البصل والبهارات",
@@ -302,6 +318,7 @@ const recipes = [
       "ادهني بالسمن واخبزي في الفرن",
       "قدمي ساخناً مقطعاً"
     ],
+    country: "EG",
     time: "40 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -311,7 +328,7 @@ const recipes = [
     name: "كباب حلة",
     isVisible: true,
     image: "images/kabab_halla.png",
-    desc: "كباب مطبوخ في الصلصة 🇪🇬",
+    desc: "كباب مطبوخ في الصلصة",
     ingredients: ["لحم مفروم", "بصل", "بقدونس", "طماطم", "بهارات", "زيت"],
     steps: [
       "اخلطي اللحم مع البصل والبهارات وشكلي أصابع",
@@ -320,6 +337,7 @@ const recipes = [
       "أضيفي الكباب إلى الصلصة",
       "اطبخي على نار هادئة 20 دقيقة وقدمي مع الأرز"
     ],
+    country: "EG",
     time: "40 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -329,7 +347,7 @@ const recipes = [
     name: "ممبار",
     isVisible: true,
     image: "images/mombar.png",
-    desc: "سجق مصري محشو 🇪🇬",
+    desc: "سجق مصري محشو",
     ingredients: ["أمعاء نظيفة", "أرز", "لحم مفروم", "بهارات", "ثوم", "شبت"],
     steps: [
       "نظفي الأمعاء جيداً",
@@ -338,6 +356,7 @@ const recipes = [
       "اربطي الأطراف واسلقي في الماء",
       "اقلي أو اشوي حتى يتحمر"
     ],
+    country: "EG",
     time: "90 دقيقة",
     level: "صعب",
     price: "معقول",
@@ -347,7 +366,7 @@ const recipes = [
     name: "سمبوسك",
     isVisible: true,
     image: "images/sambousk.png",
-    desc: "فطائر محشية مقلية 🇪🇬",
+    desc: "فطائر محشية مقلية",
     ingredients: ["عجين", "لحم مفروم", "بصل", "بهارات", "زيت للقلي"],
     steps: [
       "قلي اللحم مع البصل والبهارات واتركيه يبرد",
@@ -356,6 +375,7 @@ const recipes = [
       "اقلي في زيت عميق حتى يصبح ذهبياً",
       "قدمي مع صلصة الطماطم"
     ],
+    country: "EG",
     time: "50 دقيقة",
     level: "متوسط",
     price: "رخيص",
@@ -365,7 +385,7 @@ const recipes = [
     name: "كنافة",
     isVisible: true,
     image: "images/konafa.png",
-    desc: "ملكة الحلويات الشرقية 🇪🇬",
+    desc: "ملكة الحلويات الشرقية",
     ingredients: ["عجين كنافة", "جبنة عكاوي", "سمن", "سكر", "ماء ورد", "قشطة"],
     steps: [
       "أذيبي السمن وأضيفيه على الكنافة وافركيها",
@@ -374,6 +394,7 @@ const recipes = [
       "غطي بباقي الكنافة واضغطي",
       "اخبزي حتى تحمر ثم اسكبي القطر الساخن"
     ],
+    country: "EG",
     time: "45 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -383,7 +404,7 @@ const recipes = [
     name: "بقلاوة",
     isVisible: true,
     image: "images/baklawa.png",
-    desc: "حلوى المكسرات والعجين 🇪🇬",
+    desc: "حلوى المكسرات والعجين",
     ingredients: ["عجينة فلو", "مكسرات مشكلة", "سمن", "سكر", "ماء ورد"],
     steps: [
       "دهني صينية بالسمن",
@@ -392,6 +413,7 @@ const recipes = [
       "أكملي الطبقات العلوية وقطعي قبل الخبز",
       "اخبزي وسكبي القطر فوراً"
     ],
+    country: "EG",
     time: "60 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -401,7 +423,7 @@ const recipes = [
     name: "بسبوسة",
     isVisible: true,
     image: "images/basboussa.png",
-    desc: "حلوى السميد المصرية 🇪🇬",
+    desc: "حلوى السميد المصرية",
     ingredients: ["سميد", "سكر", "لبن", "سمن", "جوز هند", "قطر"],
     steps: [
       "اخلطي السميد مع السكر والجوز والسمن",
@@ -410,6 +432,7 @@ const recipes = [
       "اخبزي على 180 درجة لمدة 30 دقيقة",
       "اسكبي القطر الساخن فور الإخراج"
     ],
+    country: "EG",
     time: "40 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -419,7 +442,7 @@ const recipes = [
     name: "زلابية",
     isVisible: true,
     image: "images/luqaimat.png",
-    desc: "كرات العجين المقلية بالعسل 🇪🇬",
+    desc: "كرات العجين المقلية بالعسل",
     ingredients: ["دقيق", "خميرة", "سكر", "ملح", "زيت للقلي", "عسل"],
     steps: [
       "اخلطي الدقيق مع الخميرة والسكر والماء",
@@ -428,6 +451,7 @@ const recipes = [
       "اخرجيها حين تصبح ذهبية",
       "اسكبي العسل والمكسرات فوقها"
     ],
+    country: "EG",
     time: "70 دقيقة",
     level: "متوسط",
     price: "رخيص",
@@ -437,7 +461,7 @@ const recipes = [
     name: "شعرية باللبن",
     isVisible: true,
     image: "images/sha3reya_laban.png",
-    desc: "حلوى الشعرية المصرية 🇪🇬",
+    desc: "حلوى الشعرية المصرية",
     ingredients: ["شعرية", "حليب", "سكر", "زبدة", "قرفة", "مكسرات"],
     steps: [
       "قلي الشعرية بالزبدة حتى تحمر",
@@ -446,6 +470,7 @@ const recipes = [
       "حركي حتى تتماسك",
       "قدمي مع القرفة والمكسرات"
     ],
+    country: "EG",
     time: "25 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -455,7 +480,7 @@ const recipes = [
     name: "كفتة مشوية",
     isVisible: true,
     image: "images/kofta.png",
-    desc: "لحم مفروم متبل على الشواية 🇪🇬",
+    desc: "لحم مفروم متبل على الشواية",
     ingredients: ["لحم مفروم", "بصل مبشور", "بقدونس", "بهارات كفتة", "ملح"],
     steps: [
       "اخلطي اللحم مع البصل المبشور والبقدونس",
@@ -464,6 +489,7 @@ const recipes = [
       "اشوي على الفحم أو في الشواية",
       "قدمي مع الخبز والطحينة والسلطة"
     ],
+    country: "EG",
     time: "30 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -473,7 +499,7 @@ const recipes = [
     name: "دجاج بالكريمة",
     isVisible: true,
     image: "images/dajaj_cream.png",
-    desc: "دجاج بصلصة الكريمة 🇪🇬",
+    desc: "دجاج بصلصة الكريمة",
     ingredients: ["دجاج", "كريمة طبخ", "بصل", "ثوم", "بهارات", "زبدة"],
     steps: [
       "قلي الدجاج في الزبدة حتى يحمر",
@@ -482,6 +508,7 @@ const recipes = [
       "أضيفي الدجاج وسويه في الصلصة",
       "قدمي مع الأرز أو المعكرونة"
     ],
+    country: "EG",
     time: "45 دقيقة",
     level: "متوسط",
     price: "غالي",
@@ -491,7 +518,7 @@ const recipes = [
     name: "ضأن مشوي",
     isVisible: true,
     image: "images/daqan.png",
-    desc: "شواء مصري متنوع 🇪🇬",
+    desc: "شواء مصري متنوع",
     ingredients: ["لحم ضأن", "دجاج", "كفتة", "بهارات", "ثوم", "ليمون"],
     steps: [
       "تبلي اللحوم بالبهارات والثوم والليمون",
@@ -500,6 +527,7 @@ const recipes = [
       "اشوي كل قطعة حسب سمكها",
       "قدمي مع الخبز والسلطة والطحينة"
     ],
+    country: "EG",
     time: "120 دقيقة",
     level: "متوسط",
     price: "غالي",
@@ -509,7 +537,7 @@ const recipes = [
     name: "شوربة فراخ",
     isVisible: true,
     image: "images/shorbet_farakh.png",
-    desc: "شوربة الدجاج المصرية 🇪🇬",
+    desc: "شوربة الدجاج المصرية",
     ingredients: ["دجاج كامل", "جزر", "كرفس", "بصل", "أرز شعيرية", "بهارات"],
     steps: [
       "اسلقي الدجاج مع الخضروات والبهارات",
@@ -518,6 +546,7 @@ const recipes = [
       "قطعي الدجاج وأضيفيه مرة أخرى",
       "تبلي وقدمي ساخناً"
     ],
+    country: "EG",
     time: "60 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -527,7 +556,7 @@ const recipes = [
     name: "كبدة اسكندراني",
     isVisible: true,
     image: "images/kibda_eskandrani.png",
-    desc: "كبدة بالفلفل الحار 🇪🇬",
+    desc: "كبدة بالفلفل الحار",
     ingredients: ["كبدة بقري", "فلفل رومي", "فلفل حار", "بصل", "ثوم", "بهارات"],
     steps: [
       "قطعي الكبدة قطعاً صغيرة",
@@ -536,6 +565,7 @@ const recipes = [
       "قلبي بسرعة ولا تفرطي في الطهي",
       "قدمي فوراً على خبز عيش بلدي"
     ],
+    country: "EG",
     time: "20 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -545,7 +575,7 @@ const recipes = [
     name: "أرز بالشعيرية",
     isVisible: true,
     image: "images/roz_sha3reya.png",
-    desc: "الأرز المصري الكلاسيكي 🇪🇬",
+    desc: "الأرز المصري الكلاسيكي",
     ingredients: ["أرز", "شعيرية", "زيت أو سمن", "ملح", "ماء"],
     steps: [
       "قلي الشعيرية في الزيت حتى تحمر",
@@ -554,6 +584,7 @@ const recipes = [
       "غطي القدر واتركيه على نار هادئة",
       "قدمي مع أي طبق رئيسي"
     ],
+    country: "EG",
     time: "25 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -563,7 +594,7 @@ const recipes = [
     name: "صيادية السمك",
     isVisible: true,
     image: "images/sayadiya.png",
-    desc: "أرز السمك المصري 🇪🇬",
+    desc: "أرز السمك المصري",
     ingredients: ["سمك", "أرز", "بصل مقلي", "بهارات صيادية", "زيت", "مكسرات"],
     steps: [
       "قلي البصل حتى يتحمر جيداً",
@@ -572,6 +603,7 @@ const recipes = [
       "اطبخي السمك منفصلاً",
       "ارتبي الأرز والسمك وزيني بالبصل والمكسرات"
     ],
+    country: "EG",
     time: "55 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -581,7 +613,7 @@ const recipes = [
     name: "حمام محشي",
     isVisible: true,
     image: "images/hamam_mahshi.png",
-    desc: "حمام بالحشو الفاخر 🇪🇬",
+    desc: "حمام بالحشو الفاخر",
     ingredients: ["حمام", "فريك أو أرز", "كبدة دجاج", "بهارات", "سمن", "بصل"],
     steps: [
       "اطبخي الفريك مع الكبدة والبهارات",
@@ -590,6 +622,7 @@ const recipes = [
       "اشويه في الفرن لمدة ساعة",
       "قدمي مع الأرز والسلطة"
     ],
+    country: "EG",
     time: "90 دقيقة",
     level: "صعب",
     price: "غالي",
@@ -599,7 +632,7 @@ const recipes = [
     name: "بط بالبرتقال",
     isVisible: true,
     image: "images/bat_bortoqan.png",
-    desc: "بط بالصلصة الحمضية 🇪🇬",
+    desc: "بط بالصلصة الحمضية",
     ingredients: ["بط", "برتقال", "عسل", "بهارات", "بصل", "ثوم"],
     steps: [
       "نظفي البط وتبليه",
@@ -608,6 +641,7 @@ const recipes = [
       "اشويه في الفرن لمدة ساعتين",
       "اسكبي العصير فوقه كل 30 دقيقة"
     ],
+    country: "EG",
     time: "150 دقيقة",
     level: "صعب",
     price: "غالي",
@@ -617,7 +651,7 @@ const recipes = [
     name: "بيض بالبسطرمة",
     isVisible: true,
     image: "images/beid_basturma.png",
-    desc: "بيض مع البسطرمة 🇪🇬",
+    desc: "بيض مع البسطرمة",
     ingredients: ["بيض", "بسطرمة", "زيت", "ملح", "فلفل", "خبز بلدي"],
     steps: [
       "اقلي البسطرمة حتى تتحمر قليلاً",
@@ -626,6 +660,7 @@ const recipes = [
       "غطي حتى ينضج البيض",
       "قدمي فوراً مع الخبز البلدي"
     ],
+    country: "EG",
     time: "10 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -635,7 +670,7 @@ const recipes = [
     name: "عيش بلدي",
     isVisible: true,
     image: "images/eish_baladi.png",
-    desc: "خبز البر المصري الأصيل 🇪🇬",
+    desc: "خبز البر المصري الأصيل",
     ingredients: ["دقيق أسمر", "خميرة", "ملح", "ماء"],
     steps: [
       "اخلطي الدقيق مع الخميرة والملح والماء",
@@ -644,6 +679,7 @@ const recipes = [
       "شكلي أرغفة دائرية رقيقة",
       "اخبزي في فرن حار جداً حتى تنتفخ"
     ],
+    country: "EG",
     time: "80 دقيقة",
     level: "متوسط",
     price: "رخيص",
@@ -653,7 +689,7 @@ const recipes = [
     name: "خشاف",
     isVisible: true,
     image: "images/khoshaf.png",
-    desc: "مشروب الفواكه المجففة 🇪🇬",
+    desc: "مشروب الفواكه المجففة",
     ingredients: ["مشمش مجفف", "بلح", "زبيب", "مكسرات", "ماء ورد", "سكر"],
     steps: [
       "انقعي الفواكه المجففة في الماء الفاتر",
@@ -662,6 +698,7 @@ const recipes = [
       "أضيفي المكسرات",
       "قدمي بارداً خاصةً في رمضان"
     ],
+    country: "EG",
     time: "10 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -671,7 +708,7 @@ const recipes = [
     name: "مشروب التمر هندي",
     isVisible: true,
     image: "images/tamarind.png",
-    desc: "مشروب التمر الهندي الرمضاني 🇪🇬",
+    desc: "مشروب التمر الهندي الرمضاني",
     ingredients: ["تمر هندي", "ماء", "سكر", "جلاب اختياري"],
     steps: [
       "انقعي التمر الهندي في الماء الفاتر",
@@ -680,6 +717,7 @@ const recipes = [
       "أضيفي الماء البارد",
       "قدمي مع الثلج"
     ],
+    country: "EG",
     time: "15 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -689,7 +727,7 @@ const recipes = [
     name: "كريب مصري",
     isVisible: true,
     image: "images/crep_masri.png",
-    desc: "فطير رقيق بالعسل والجبنة 🇪🇬",
+    desc: "فطير رقيق بالعسل والجبنة",
     ingredients: ["دقيق", "بيض", "حليب", "زبدة", "عسل", "جبنة قديمة"],
     steps: [
       "اخلطي الدقيق والبيض والحليب والزبدة",
@@ -698,6 +736,7 @@ const recipes = [
       "صبي ملعقة كبيرة من الخليط وافرديها دائرة رقيقة",
       "قدمي مع العسل والجبنة القديمة"
     ],
+    country: "EG",
     time: "20 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -707,7 +746,7 @@ const recipes = [
     name: "عصيدة",
     isVisible: true,
     image: "images/aseeda.png",
-    desc: "حلوى الدقيق المصرية 🇪🇬",
+    desc: "حلوى الدقيق المصرية",
     ingredients: ["دقيق أبيض", "ماء", "سكر", "سمن", "عسل", "مكسرات"],
     steps: [
       "أذيبي السمن في القدر",
@@ -716,6 +755,7 @@ const recipes = [
       "استمري بالتحريك حتى تتكاثف",
       "قدمي مع السمن والعسل فوقها"
     ],
+    country: "EG",
     time: "20 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -725,7 +765,7 @@ const recipes = [
     name: "خبيزة",
     isVisible: true,
     image: "images/khobeiza.png",
-    desc: "فطيرة مصرية شعبية 🇪🇬",
+    desc: "فطيرة مصرية شعبية",
     ingredients: ["ورق الخبيزة", "بصل", "ثوم", "زيت", "ملح", "فلفل"],
     steps: [
       "اغسلي أوراق الخبيزة جيداً",
@@ -734,6 +774,7 @@ const recipes = [
       "أضيفي الخبيزة وقلبي",
       "تبلي وقدمي مع الخبز"
     ],
+    country: "EG",
     time: "20 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -743,7 +784,7 @@ const recipes = [
     name: "مقلوبة الدجاج",
     isVisible: true,
     image: "images/maqlouba.png",
-    desc: "أرز مقلوب بالدجاج والخضار 🇪🇬",
+    desc: "أرز مقلوب بالدجاج والخضار",
     ingredients: ["دجاج", "أرز", "باذنجان مقلي", "جزر", "بهارات", "مرق"],
     steps: [
       "اطبخي الدجاج واحتفظي بالمرق",
@@ -752,6 +793,7 @@ const recipes = [
       "أضيفي المرق وأغلقي القدر",
       "اطبخي ثم اقلبي في الطبق عند التقديم"
     ],
+    country: "EG",
     time: "75 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -761,7 +803,7 @@ const recipes = [
     name: "جلاش باللحمة",
     isVisible: true,
     image: "images/gallash_lahma.png",
-    desc: "فطير محلى ومالح 🇪🇬",
+    desc: "فطير محلى ومالح",
     ingredients: ["عجين جلاش", "لحم مفروم", "بصل", "بهارات", "بيض", "سمن"],
     steps: [
       "قلي اللحم مع البصل والبهارات",
@@ -770,6 +812,7 @@ const recipes = [
       "أكملي باقي الطبقات وادهني بالبيض",
       "اخبزي في فرن متوسط الحرارة"
     ],
+    country: "EG",
     time: "55 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -779,7 +822,7 @@ const recipes = [
     name: "إسكالوب",
     isVisible: true,
     image: "images/escalope.png",
-    desc: "اللحم المضروب المصري 🇪🇬",
+    desc: "اللحم المضروب المصري",
     ingredients: ["شرائح لحم بتلو", "بيض", "بقسماط", "ملح", "فلفل", "زيت"],
     steps: [
       "ارفعي شرائح اللحم بالشاكوش لتصبح رقيقة",
@@ -788,6 +831,7 @@ const recipes = [
       "اقلي في زيت ساخن حتى يذهب",
       "قدمي مع البطاطس المقلية والسلطة"
     ],
+    country: "EG",
     time: "30 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -797,7 +841,7 @@ const recipes = [
     name: "دولمة خضار",
     isVisible: true,
     image: "images/dolma_khodar.png",
-    desc: "خضار محشية بالأرز 🇪🇬",
+    desc: "خضار محشية بالأرز",
     ingredients: ["فلفل رومي", "كوسة", "أرز", "لحم مفروم", "طماطم", "بهارات"],
     steps: [
       "فرغي الخضار من الداخل",
@@ -806,6 +850,7 @@ const recipes = [
       "رتبي في قدر واسكبي صلصة الطماطم",
       "اطبخي على نار هادئة حتى تنضج"
     ],
+    country: "EG",
     time: "80 دقيقة",
     level: "صعب",
     price: "معقول",
@@ -815,7 +860,7 @@ const recipes = [
     name: "خروف محشي",
     isVisible: true,
     image: "images/kharouf_mahshi.png",
-    desc: "خروف بالحشو الكامل 🇪🇬",
+    desc: "خروف بالحشو الكامل",
     ingredients: ["خروف صغير", "أرز", "لحم مفروم", "مكسرات", "بهارات", "سمن"],
     steps: [
       "نظفي الخروف جيداً",
@@ -824,6 +869,7 @@ const recipes = [
       "تبليه وادهنيه بالسمن",
       "اخبزي لمدة 3 ساعات حتى يطرى"
     ],
+    country: "EG",
     time: "210 دقيقة",
     level: "صعب",
     price: "غالي",
@@ -833,7 +879,7 @@ const recipes = [
     name: "حلة الدجاج بالأرز",
     isVisible: true,
     image: "images/hallet_dajaj.png",
-    desc: "دجاج محمر في قدر 🇪🇬",
+    desc: "دجاج محمر في قدر",
     ingredients: ["دجاج", "أرز", "بصل", "بهارات", "زيت", "ماء"],
     steps: [
       "قلي الدجاج في الزيت حتى يحمر",
@@ -842,6 +888,7 @@ const recipes = [
       "اتركيه يتشرب ثم أضيفي الأرز",
       "غطي واطبخي على نار هادئة"
     ],
+    country: "EG",
     time: "50 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -851,7 +898,7 @@ const recipes = [
     name: "مكرونة بالبشاميل",
     isVisible: true,
     image: "images/makarona_beshamel.png",
-    desc: "باستا بالبشاميل والبولونيز 🇪🇬",
+    desc: "باستا بالبشاميل والبولونيز",
     ingredients: ["مكرونة بنة", "لحم مفروم", "طماطم", "صلصة بشاميل", "جبنة", "بيض"],
     steps: [
       "اسلقي المكرونة وصفيها",
@@ -860,6 +907,7 @@ const recipes = [
       "ارتبي طبقات في الصينية وأضيفي الجبنة",
       "اخبزي حتى يحمر السطح"
     ],
+    country: "EG",
     time: "70 دقيقة",
     level: "متوسط",
     price: "معقول",
@@ -869,7 +917,7 @@ const recipes = [
     name: "سلطة خضراء مصرية",
     isVisible: true,
     image: "images/salata_khodra.png",
-    desc: "سلطة الطازج المصرية 🇪🇬",
+    desc: "سلطة الطازج المصرية",
     ingredients: ["طماطم", "خيار", "بصل", "بقدونس", "ليمون", "زيت زيتون"],
     steps: [
       "قطعي الطماطم والخيار والبصل ناعماً",
@@ -878,6 +926,7 @@ const recipes = [
       "أضيفي زيت الزيتون والملح",
       "قلبي جيداً وقدمي طازجة"
     ],
+    country: "EG",
     time: "10 دقيقة",
     level: "سهل",
     price: "رخيص",
@@ -887,7 +936,7 @@ const recipes = [
     name: "زبادي بالعسل والمكسرات",
     isVisible: true,
     image: "images/zabadi_honey.png",
-    desc: "إفطار مصري خفيف 🇪🇬",
+    desc: "إفطار مصري خفيف",
     ingredients: ["زبادي", "عسل", "جوز", "لوز", "تمر"],
     steps: [
       "ضعي الزبادي في طبق",
@@ -896,6 +945,7 @@ const recipes = [
       "زيني بالتمر",
       "قدمي فوراً بارداً"
     ],
+    country: "EG",
     time: "5 دقيقة",
     level: "سهل",
     price: "معقول",
@@ -914,10 +964,13 @@ recipes.filter(recipe => recipe.isVisible).forEach(recipe => {
 
   card.innerHTML = `
     <div class="recipe-header">
-      <img src="${recipe.image}" alt="Recipe">
+    <img src="${recipe.image}" alt="Recipe">
       <div class="overlay">
-        <h1>${recipe.name}</h1>
-        <p>${recipe.desc}</p>
+          <h1>${recipe.name}</h1>
+          <div class="overlay-meta">
+            <p class="desc">${recipe.desc}</p>
+            <p class="country-tag">${recipe.country}</p>
+          </div>
       </div>
     </div>
 
@@ -1005,7 +1058,10 @@ function displayRecipes() {
           <img src="${recipe.image}" alt="Recipe">
           <div class="overlay">
             <h1>${recipe.name}</h1>
-            <p>${recipe.desc}</p>
+            <div class="overlay-meta">
+              <p class="desc">${recipe.desc}</p>
+              <p class="country-tag">${recipe.country}</p>
+            </div>
           </div>
         </div>
 
