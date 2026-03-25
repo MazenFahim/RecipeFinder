@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="styles/signup.css">
     <link rel="stylesheet" href="styles/style.css">
-    <body>
-        <nav class="navbar">
+</head>
+
+<body>
+    <nav class="navbar">
         <div class="nav-logo">
             🍽️ RecipeFinder
         </div>
@@ -16,34 +19,49 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="favorites.html">Favorites</a></li>
             <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
         </ul>
 
         <div class="nav-search">
             <input type="text" placeholder="Search recipes...">
             <button>🔍</button>
         </div>
-        </nav>
+    </nav>
 
-        <div class="sign-up-inputs">
+    <main class="sign-up-container">
+        <div class="sign-up-card">
             <span id="sign-up-text">Sign up</span>
             <span class="subtitle">Sign up to continue</span>
-        
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-        
-            <button id="sign-up-btn" onclick="window.location.href='https://www.instagram.com/';">
-                Sign up
-            </button>
-        
-            <input type="checkbox" id="remember-me" title="Remember me">
-            <label for="remember-me">Remember me</label>
+
+            <form>
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                </div>
+
+                <div class="remember-container">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+
+                <button type="button" id="sign-up-btn">Sign up</button>
+            </form>
+
+            <div class="already-have">
+                <span id="have-acc">Already have an account?</span>
+                <a href="login.html" id="sign-in-link">Sign in</a>
+            </div>
         </div>
-        
-        <div class="already-have">
-            <label id="have-acc">Already have an account?</label>
-            <a href="https://google.com" id="sign-in-btn" target="_blank">Sign in</a>
-        </div>
-    </body>
+    </main>
+</body>
+
 </html>
