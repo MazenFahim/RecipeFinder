@@ -374,7 +374,7 @@ const recipes = [
     price: "رخيص"
   },
   {
-    name: "لقيمات",
+    name: "زلابية",
     isVisible: true,
     image: "images/luqaimat.png",
     desc: "كرات العجين المقلية بالعسل 🇪🇬",
