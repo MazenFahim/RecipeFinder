@@ -104,7 +104,7 @@ const recipes = [
   {
     name: "محشي كرنب",
     isVisible: true,
-    image: "images/mahshi_koronb.png",
+    image: "images/mahshy.jpg",
     desc: "أوراق كرنب محشية 🇪🇬",
     ingredients: ["كرنب", "أرز", "لحم مفروم", "طماطم", "بهارات", "عصير ليمون"],
     steps: [
@@ -121,7 +121,7 @@ const recipes = [
   {
     name: "محشي ورق عنب",
     isVisible: true,
-    image: "images/mahshi_waraq_enab.png",
+    image: "images/waraq-aenab.jpg",
     desc: "ورق عنب محشي 🇪🇬",
     ingredients: ["ورق عنب", "أرز", "لحم مفروم", "بهارات", "زيت", "ليمون"],
     steps: [
@@ -138,7 +138,7 @@ const recipes = [
   {
     name: "بامية باللحم",
     isVisible: true,
-    image: "images/bamia_lahem.png",
+    image: "images/bamia_lahem.jpg",
     desc: "يخنة البامية المصرية 🇪🇬",
     ingredients: ["بامية", "لحم ضأن", "طماطم", "ثوم", "كزبرة", "بهارات"],
     steps: [
@@ -155,7 +155,7 @@ const recipes = [
   {
     name: "فتة",
     isVisible: true,
-    image: "images/fatta.png",
+    image: "images/fatta.jpg",
     desc: "طبق الاحتفالات المصري 🇪🇬",
     ingredients: ["خبز بلدي", "أرز", "لحم", "صلصة طماطم", "ثوم", "خل"],
     steps: [
@@ -172,7 +172,7 @@ const recipes = [
   {
     name: "سمك مشوي بالطريقة المصرية",
     isVisible: true,
-    image: "images/samak_mashwi.png",
+    image: "images/samak_mashwi.jpg",
     desc: "سمك متبل على الفحم 🇪🇬",
     ingredients: ["سمك بلطي", "كمون", "كزبرة", "ثوم", "ليمون", "زيت"],
     steps: [
@@ -189,7 +189,7 @@ const recipes = [
   {
     name: "قلقاس بالذقنة",
     isVisible: true,
-    image: "images/qolqas.png",
+    image: "images/qolqas.jpg",
     desc: "يخنة القلقاس المصرية 🇪🇬",
     ingredients: ["قلقاس", "عرق لحم", "ذقنة", "ليمون", "ثوم", "كزبرة"],
     steps: [
@@ -255,9 +255,9 @@ const recipes = [
     price: "رخيص"
   },
   {
-    name: "رقاق اللحم",
+    name: "جلاش",
     isVisible: true,
-    image: "images/raqaq_lahem.png",
+    image: "images/golash.png",
     desc: "فطائر رقيقة باللحم 🇪🇬",
     ingredients: ["عجين رقاق", "لحم مفروم", "بصل", "بهارات", "سمن"],
     steps: [
@@ -442,9 +442,9 @@ const recipes = [
     price: "غالي"
   },
   {
-    name: "مشوي مصري",
+    name: "ضأن مشوي",
     isVisible: true,
-    image: "images/mashawi.png",
+    image: "images/daqan.png",
     desc: "شواء مصري متنوع 🇪🇬",
     ingredients: ["لحم ضأن", "دجاج", "كفتة", "بهارات", "ثوم", "ليمون"],
     steps: [
@@ -874,6 +874,7 @@ recipes.filter(recipe => recipe.isVisible).forEach(recipe => {
 
   const card = document.createElement("div");
   card.classList.add("recipe-card");
+  card.style.cursor = "pointer";
 
   card.innerHTML = `
     <div class="recipe-header">
@@ -887,7 +888,7 @@ recipes.filter(recipe => recipe.isVisible).forEach(recipe => {
     <div class="recipe-body">
 
       <div class="recipe-section">
-        <h3>🧂 المكونات</h3>
+        <h3>😋 المكونات</h3>
         <ul>
           ${recipe.ingredients.map(item => `<li>${item}</li>`).join("")}
         </ul>
