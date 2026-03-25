@@ -71,7 +71,7 @@ body {
 .admin-container {
     max-width: 800px;
     margin: 40px auto;
-    background: #fff8ee;
+    background: #fdecd2;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
@@ -83,7 +83,7 @@ header h1 {
     color: var(--brick);
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -145,7 +145,7 @@ h3 {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     width: 100%;
-    transition: background 0.3s ease, transform 0.1s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .dashboard-menu button:hover {
@@ -163,4 +163,152 @@ h3 {
 
 .dashboard-menu .delete-btn:hover {
     background-color: #a33507;
+}
+
+
+/* Add Recipe Styles */
+
+h1 {
+    text-align: center;
+    color: var(--brick);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+section {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff8ee;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
+    border: 1px solid var(--parchment-dark);
+}
+
+section a {
+    color: var(--bark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+section a:hover {
+    color: var(--brick);
+}
+
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form table td {
+    padding: 10px 12px;
+    vertical-align: top;
+}
+
+form label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: var(--bark);
+}
+
+.back{
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 10px;
+    color: var(--espresso);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+
+form input[type="text"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 8px;
+    background-color: var(--parchment);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--espresso);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+form input[type="text"]:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--ember);
+    box-shadow: 0 0 0 3px rgba(224, 123, 57, 0.15);
+}
+
+
+form input[type="text"]::placeholder,
+form textarea::placeholder {
+    color: #b0a090;
+    font-style: italic;
+}
+
+form select {
+    cursor: pointer;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%233D2B1F' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-position: right 14px center;
+    padding-right: 36px;
+
+}
+
+
+form textarea {
+    resize: vertical;
+    min-height: 50px;
+    line-height: 1.6;
+}
+
+
+form input[type="submit"],
+form input[type="reset"] {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-right: 12px;
+}
+
+
+form input[type="submit"] {
+    background-color: var(--bark);
+    color: var(--parchment);
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--ember);
+}
+
+
+form input[type="reset"] {
+    background-color: var(--parchment-dark);
+    color: var(--bark);
+}
+
+form input[type="reset"]:hover {
+    background-color: #ddd0b8;
+}
+
+
+form input[type="submit"]:active,
+form input[type="reset"]:active {
+    transform: scale(0.98);
 }

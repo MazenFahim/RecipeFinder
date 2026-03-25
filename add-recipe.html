@@ -2,17 +2,31 @@
 <html>
 <head>
     <title>Add New Recipe</title>
+    <link rel="stylesheet" href="styles/admin.css">
 </head>
 <body>
-<header>
+
+<nav class="navbar">
+    <div class="nav-logo">
+        Admin Panel
+    </div>
+    <ul class="nav-links">
+        <li><a href="admin_dashboard.html">Dashboard</a></li>
+        <li><a href="add-recipe.html">Add Recipe</a></li>
+        <li><a href="view-recipe.html">View Recipes</a></li>
+        <li><a href="index.html">Log Out</a></li>
+    </ul>
+</nav>
+
+
+<div class ="admin-container">
     <h1>Add New Recipe</h1>
-</header>
+    <h2><i>Fill in the details below to add a new recipe to the collection.</i></h2>
+    <section>
+       <a href="admin_dashboard.html"> <h3 class="back">&#8592; Back to Dashboard</h3></a>
+       <br><br>
 
-<section>
-    <a href="admin_dashboard.html">&lt;Back to Dashboard</a>
-    <br><br>
-
-    <form action="#" method="POST">
+      <form action="#" method="POST">
         <table>
             <tr>
                 <td><label for="recipeID">Recipe ID: </label></td>
@@ -39,13 +53,16 @@
             </tr>
             <tr>
                 <td><label for="Ingredients">Ingredients:</label></td>
-                <td><textarea name="Ingredients" id="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea></td>
+                <td><textarea name="Ingredients" id="Ingredients" cols="8" rows="4"
+                        placeholder="Enter Ingredients of this recipe"></textarea></td>
             </tr>
         </table>
         <br>
         <input type="submit" value="Add Recipe">
         <input type="reset" value="Reset Form">
-    </form>
-</section>
+      </form>
+    </section>
+</div>    
+
 </body>
 </html>
