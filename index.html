@@ -1,64 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="styles/style.css">
-  </head>
 
-  <body>
-    <nav class="navbar">
-      <div class="nav-logo">
-        🍽️ RecipeFinder
-      </div>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="favorites.html">Favorites</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-      </ul>
-
-      <div class="nav-search">
-        <input type="text" placeholder="Search recipes...">
-        <button>🔍</button>
-      </div>
-    </nav>
-
-    <div class="Hottest-meals">
-      <div class="headlines">
-        <p id="yummy-headline">Most Viewed 🔥😋</p>
-      </div>
-      <div class="carousel-track">
-        <div class="wrapper">
-          <img src="images/bamia_lahem.jpg" alt="bamia_lahem" class="item">
-          <img src="images/Molokhia.png" alt="Molokhia" class="item">
-          <img src="images/dajaj_cream.png" alt="dajaj_cream" class="item">
-          <img src="images/mesakhan.png" alt="mesakhan" class="item">
-          <img src="images/baklawa.png" alt="baklawa" class="item">
-
-          <img src="images/bamia_lahem.jpg" aria-hidden="true" class="item">
-          <img src="images/Molokhia.png" aria-hidden="true" class="item">
-          <img src="images/dajaj_cream.png" aria-hidden="true" class="item">
-          <img src="images/mesakhan.png" aria-hidden="true" class="item">
-          <img src="images/baklawa.png" aria-hidden="true" class="item">
-        </div>
-      </div>
+<body >
+  <nav class="navbar">
+    <div class="nav-logo">
+      🍽️ RecipeFinder
     </div>
 
-    <div class="filters">
-      <button class="filter-btn">حادق</button>
-      <button class="filter-btn">سريع التحضير</button>
-      <button class="filter-btn">نباتي</button>
-      <button class="filter-btn">حلو</button>
-      <button class="filter-btn">مصري</button>
-      <button class="filter-btn">فلسطيني</button>
-      <button class="filter-btn">سوري</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="favorites.html">Favorites</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+
+    <div class="nav-search">
+      <input type="text" placeholder="Search recipes...">
+      <button>🔍</button>
     </div>
+  </nav>
 
-    <div class="parentEg">
-
+  <div class="Hottest-meals">
+    <div class="headlines">
+      <p id="yummy-headline">Most Viewed 🔥😋</p>
     </div>
+    <div class="carousel-track">
+      <div class="wrapper">
+        <img src="images/bamia_lahem.jpg" alt="bamia_lahem" class="item">
+        <img src="images/Molokhia.png" alt="Molokhia" class="item">
+        <img src="images/dajaj_cream.png" alt="dajaj_cream" class="item">
+        <img src="images/mesakhan.png" alt="mesakhan" class="item">
+        <img src="images/baklawa.png" alt="baklawa" class="item">
 
-  </body>
-  <script src="data.js"></script>
+        <img src="images/bamia_lahem.jpg" aria-hidden="true" class="item">
+        <img src="images/Molokhia.png" aria-hidden="true" class="item">
+        <img src="images/dajaj_cream.png" aria-hidden="true" class="item">
+        <img src="images/mesakhan.png" aria-hidden="true" class="item">
+        <img src="images/baklawa.png" aria-hidden="true" class="item">
+      </div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <!-- النوع -->
+<button class="filter-btn">وجبات رئيسية</button>
+<button class="filter-btn">حلويات</button>
+<button class="filter-btn">مشروبات</button>
+<button class="filter-btn">سلطات</button>
+
+<!-- الطعم -->
+<button class="filter-btn">حادق</button>
+<button class="filter-btn">حلو</button>
+
+<!-- البلد -->
+<button class="filter-btn">مصري</button>
+<button class="filter-btn">فلسطيني</button>
+<button class="filter-btn">سوري</button>
+
+<!-- النظام -->
+<button class="filter-btn">نباتي</button>
+
+<!-- الصعوبة -->
+<button class="filter-btn">سهل</button>
+<button class="filter-btn">متوسط</button>
+<button class="filter-btn">صعب</button>
+
+<!-- الوقت -->
+<button class="filter-btn">أقل من 30 دقيقة</button>
+<button class="filter-btn">أقل من ساعة</button>
+<button class="filter-btn">أكثر من ساعة</button>
+  </div>
+
+  <div class="parentEg">
+
+  </div>
+
+</body>
+<script src="data.js"></script>
+
 </html>

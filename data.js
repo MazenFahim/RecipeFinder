@@ -14,7 +14,8 @@ const recipes = [
     ],
     time: "30 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "ملوخية",
@@ -31,7 +32,8 @@ const recipes = [
     ],
     time: "40 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "طعمية",
@@ -48,7 +50,8 @@ const recipes = [
     ],
     time: "25 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "حواوشي",
@@ -65,7 +68,8 @@ const recipes = [
     ],
     time: "35 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "فول مدمس",
@@ -82,7 +86,8 @@ const recipes = [
     ],
     time: "45 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "نباتي", "سهل", "أقل من ساعة"]
   },
   {
     name: "أم علي",
@@ -99,7 +104,8 @@ const recipes = [
     ],
     time: "40 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["حلويات", "حلو", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "محشي كرنب",
@@ -116,7 +122,8 @@ const recipes = [
     ],
     time: "90 دقيقة",
     level: "صعب",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "محشي ورق عنب",
@@ -133,7 +140,8 @@ const recipes = [
     ],
     time: "75 دقيقة",
     level: "صعب",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "مسخن",
@@ -152,7 +160,8 @@ const recipes = [
     ],
     time: "70 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "فلسطيني", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "بامية باللحم",
@@ -169,7 +178,8 @@ const recipes = [
     ],
     time: "60 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "فتة",
@@ -186,7 +196,8 @@ const recipes = [
     ],
     time: "90 دقيقة",
     level: "متوسط",
-    price: "غالي"
+    price: "غالي",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "سمك مشوي بالطريقة المصرية",
@@ -203,7 +214,8 @@ const recipes = [
     ],
     time: "50 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "قلقاس بالذقنة",
@@ -220,7 +232,8 @@ const recipes = [
     ],
     time: "60 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "لسان عصفور بالدجاج",
@@ -237,7 +250,8 @@ const recipes = [
     ],
     time: "45 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من ساعة"]
   },
   {
     name: "مسقعة",
@@ -254,7 +268,8 @@ const recipes = [
     ],
     time: "50 دقيقة",
     level: "متوسط",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "شوربة عدس",
@@ -271,7 +286,8 @@ const recipes = [
     ],
     time: "30 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "جلاش",
@@ -288,7 +304,8 @@ const recipes = [
     ],
     time: "40 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "كباب حلة",
@@ -305,7 +322,8 @@ const recipes = [
     ],
     time: "40 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "ممبار",
@@ -322,7 +340,8 @@ const recipes = [
     ],
     time: "90 دقيقة",
     level: "صعب",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "سمبوسك",
@@ -339,7 +358,8 @@ const recipes = [
     ],
     time: "50 دقيقة",
     level: "متوسط",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "كنافة",
@@ -356,7 +376,8 @@ const recipes = [
     ],
     time: "45 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["حلويات", "حلو", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "بقلاوة",
@@ -373,7 +394,8 @@ const recipes = [
     ],
     time: "60 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["حلويات", "حلو", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "بسبوسة",
@@ -390,7 +412,8 @@ const recipes = [
     ],
     time: "40 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["حلويات", "حلو", "مصري", "سهل", "أقل من ساعة"]
   },
   {
     name: "زلابية",
@@ -407,7 +430,8 @@ const recipes = [
     ],
     time: "70 دقيقة",
     level: "متوسط",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["حلويات", "حلو", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "شعرية باللبن",
@@ -424,7 +448,8 @@ const recipes = [
     ],
     time: "25 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["حلويات", "حلو", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "كفتة مشوية",
@@ -441,7 +466,8 @@ const recipes = [
     ],
     time: "30 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "دجاج بالكريمة",
@@ -458,7 +484,8 @@ const recipes = [
     ],
     time: "45 دقيقة",
     level: "متوسط",
-    price: "غالي"
+    price: "غالي",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "ضأن مشوي",
@@ -475,7 +502,8 @@ const recipes = [
     ],
     time: "120 دقيقة",
     level: "متوسط",
-    price: "غالي"
+    price: "غالي",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "شوربة فراخ",
@@ -492,7 +520,8 @@ const recipes = [
     ],
     time: "60 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أكثر من ساعة"]
   },
   {
     name: "كبدة اسكندراني",
@@ -509,7 +538,8 @@ const recipes = [
     ],
     time: "20 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "أرز بالشعيرية",
@@ -526,7 +556,8 @@ const recipes = [
     ],
     time: "25 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "صيادية السمك",
@@ -543,7 +574,8 @@ const recipes = [
     ],
     time: "55 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "حمام محشي",
@@ -560,7 +592,8 @@ const recipes = [
     ],
     time: "90 دقيقة",
     level: "صعب",
-    price: "غالي"
+    price: "غالي",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "بط بالبرتقال",
@@ -577,7 +610,8 @@ const recipes = [
     ],
     time: "150 دقيقة",
     level: "صعب",
-    price: "غالي"
+    price: "غالي",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "بيض بالبسطرمة",
@@ -594,7 +628,8 @@ const recipes = [
     ],
     time: "10 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "عيش بلدي",
@@ -611,7 +646,8 @@ const recipes = [
     ],
     time: "80 دقيقة",
     level: "متوسط",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "نباتي", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "خشاف",
@@ -628,7 +664,8 @@ const recipes = [
     ],
     time: "10 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["مشروبات", "حلو", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "مشروب التمر هندي",
@@ -645,7 +682,8 @@ const recipes = [
     ],
     time: "15 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["مشروبات", "حادق", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "كريب مصري",
@@ -662,7 +700,8 @@ const recipes = [
     ],
     time: "20 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["حلويات", "حلو", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "عصيدة",
@@ -679,7 +718,8 @@ const recipes = [
     ],
     time: "20 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["حلويات", "حلو", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "خبيزة",
@@ -696,7 +736,8 @@ const recipes = [
     ],
     time: "20 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "مقلوبة الدجاج",
@@ -713,7 +754,8 @@ const recipes = [
     ],
     time: "75 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "جلاش باللحمة",
@@ -730,7 +772,8 @@ const recipes = [
     ],
     time: "55 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أقل من ساعة"]
   },
   {
     name: "إسكالوب",
@@ -747,7 +790,8 @@ const recipes = [
     ],
     time: "30 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "دولمة خضار",
@@ -764,7 +808,8 @@ const recipes = [
     ],
     time: "80 دقيقة",
     level: "صعب",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "خروف محشي",
@@ -781,7 +826,8 @@ const recipes = [
     ],
     time: "210 دقيقة",
     level: "صعب",
-    price: "غالي"
+    price: "غالي",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "صعب", "أكثر من ساعة"]
   },
   {
     name: "حلة الدجاج بالأرز",
@@ -798,7 +844,8 @@ const recipes = [
     ],
     time: "50 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "سهل", "أقل من ساعة"]
   },
   {
     name: "مكرونة بالبشاميل",
@@ -815,7 +862,8 @@ const recipes = [
     ],
     time: "70 دقيقة",
     level: "متوسط",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حادق", "مصري", "متوسط", "أكثر من ساعة"]
   },
   {
     name: "سلطة خضراء مصرية",
@@ -832,7 +880,8 @@ const recipes = [
     ],
     time: "10 دقيقة",
     level: "سهل",
-    price: "رخيص"
+    price: "رخيص",
+    filters: ["سلطات", "حادق", "مصري", "نباتي", "سهل", "أقل من 30 دقيقة"]
   },
   {
     name: "زبادي بالعسل والمكسرات",
@@ -849,9 +898,11 @@ const recipes = [
     ],
     time: "5 دقيقة",
     level: "سهل",
-    price: "معقول"
+    price: "معقول",
+    filters: ["وجبات رئيسية", "حلو", "مصري", "سهل", "أقل من 30 دقيقة"]
   }
 ];
+
 
 const parent = document.querySelector(".parentEg");
 
@@ -900,3 +951,90 @@ recipes.filter(recipe => recipe.isVisible).forEach(recipe => {
 
   parent.appendChild(card);
 });
+
+//               filters                //
+// Example: How to use the filters for filtering
+
+
+let activeFilters = [];
+
+const buttons = document.querySelectorAll(".filter-btn");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.textContent.trim();
+
+    // toggle filter
+    if (activeFilters.includes(filter)) {
+      activeFilters = activeFilters.filter(f => f !== filter);
+      btn.classList.remove("active");
+    } else {
+      activeFilters.push(filter);
+      btn.classList.add("active");
+    }
+
+    applyFilters();
+  });
+});
+function applyFilters() {
+  recipes.forEach(recipe => {
+    recipe.isVisible = activeFilters.every(f =>
+      recipe.filters.includes(f)
+    );
+  });
+
+  displayRecipes();
+}
+const filterRecipes = (selectedFilters) => {
+  return recipes.filter(recipe => {
+    // Check if the recipe contains ALL selected filters
+    return selectedFilters.every(filter => recipe.filters.includes(filter));
+  });
+};
+function displayRecipes() {
+  parent.innerHTML = ""; // 🧹 امسح القديم
+
+  recipes
+    .filter(recipe => recipe.isVisible)
+    .forEach(recipe => {
+      const card = document.createElement("div");
+      card.classList.add("recipe-card");
+
+      card.innerHTML = `
+        <div class="recipe-header">
+          <img src="${recipe.image}" alt="Recipe">
+          <div class="overlay">
+            <h1>${recipe.name}</h1>
+            <p>${recipe.desc}</p>
+          </div>
+        </div>
+
+        <div class="recipe-body">
+          <div class="recipe-section">
+            <h3>😋 المكونات</h3>
+            <ul>
+              ${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="recipe-section">
+            <h3>👨‍🍳 خطوات التحضير</h3>
+            <ol>
+              ${recipe.steps.map(s => `<li>${s}</li>`).join("")}
+            </ol>
+          </div>
+
+          <div class="recipe-section">
+            <h3>⏱ معلومات</h3>
+            <div class="info-box">
+              <span>⏰ ${recipe.time}</span>
+              <span>🔥 ${recipe.level}</span>
+              <span>💸 ${recipe.price}</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      parent.appendChild(card);
+    });
+}
