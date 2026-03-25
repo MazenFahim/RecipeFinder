@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&display=swap');
+
+/* ===== PALETTE VARIABLES (From Front-End) ===== */
+:root {
+    --espresso:       #1C1712;
+    --bark:           #3D2B1F;
+    --brick:          #C1440E;
+    --ember:          #E07B39;
+    --wheat:          #F5C784;
+    --parchment:      #FAF0E0;
+    --parchment-dark: #F0E2C8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--parchment);
+    font-family: 'Lato', sans-serif;
+    color: var(--espresso);
+}
+
+/* ===== NAVBAR (Exactly matching Front-End) ===== */
+.navbar {
+    background: var(--espresso);
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(28, 23, 18, 0.5);
+    border-bottom: 2px solid var(--brick);
+}
+
+.nav-logo {
+    color: var(--wheat);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--parchment-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--wheat);
+}
+
+/* ===== ADMIN DASHBOARD SPECIFIC STYLES ===== */
+/* Blended perfectly into the Front-End Theme */
+
+.admin-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff8ee;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
+    border: 1px solid var(--parchment-dark);
+}
+
+header h1 {
+    text-align: center;
+    color: var(--brick);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--bark);
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+h3 {
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 10px;
+    color: var(--espresso);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.dashboard-menu {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-menu li {
+    background: var(--parchment);
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--parchment-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-menu li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(28, 23, 18, 0.12);
+}
+
+.dashboard-menu p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--espresso);
+}
+
+.dashboard-menu button {
+    background-color: var(--bark);
+    color: var(--parchment);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.dashboard-menu button:hover {
+    background-color: var(--ember);
+}
+
+.dashboard-menu button:active {
+    transform: scale(0.98);
+}
+
+
+.dashboard-menu .delete-btn {
+    background-color: var(--brick);
+}
+
+.dashboard-menu .delete-btn:hover {
+    background-color: #a33507;
+}

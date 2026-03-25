@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles/admin.css">
 </head>
 <body>
-<header>
+<nav class="navbar">
+    <div class="nav-logo">
+        Admin Panel
+    </div>
+    <ul class="nav-links">
+        <li><a href="admin_dashboard.html">Dashboard</a></li>
+        <li><a href="add-recipe.html">Add Recipe</a></li>
+        <li><a href="view-recipe.html">View Recipes</a></li>
+        <li><a href="index.html">Log Out</a></li>
+    </ul>
+</nav>
+
+<div class="admin-container">
+    <header>
     <h1>Admin Dashboard</h1>
-</header>
-<h2><i>Welcome, Admin!</i></h2>
+    </header>
+    <h2><i>Welcome, Admin!</i></h2>
 
 <section>
     <h3>Manage Recipes</h3>
-    <ul>
-        <li>
-            <p>1- Add New Recipe:</p>
+        <ul class ="dashboard-menu">
+            <li>
+            <p>Add New Recipe:</p>
             <a href="add-recipe.html"><button>Go to Add Recipe</button></a>
-        </li>
-        <hr>
-        <li>
-            <p>2- View All Recipes:</p>
-            <a href="view-recipe.html"><button>View</button> </a></li>
-        <hr>
-        <li>
-            <p>3- Edit Recipe:</p>
+            </li>
+            <li>
+            <p>View All Recipes:</p>
+            <a href="view-recipe.html"><button>View</button> </a>
+            </li>
+            <li>
+            <p>Edit Recipe:</p>
             <a href="edit-recipe.html"><button>Go to Edit Recipe</button></a>
-        </li>
-        <hr>
-        <li>
-            <p>4- Delete Recipe:</p>
-            <button style="background-color: red; color: black;">
-                Delete</button> </li>
-    </ul>
-</section>
+            </li>
+            <li>
+            <p>Delete Recipe</p>
+            <button id="deleteRecipeBtn" class="delete-btn">Delete a Recipe</button>
+            </li>
+        </ul>
+    </section>
+</div>
+<script src="data.js"></script>
 </body>
 </html>
