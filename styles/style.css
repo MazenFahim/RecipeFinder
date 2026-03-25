@@ -188,13 +188,19 @@ body {
   font-weight: 700;
   margin-bottom: 4px;
   color: #fff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow:
+      -1px -1px 0 rgba(0, 0, 0, 0.5),
+      1px -1px 0 rgba(0, 0, 0, 0.5),
+      -1px 1px 0 rgba(0, 0, 0, 0.5),
+      1px 1px 0 rgba(0, 0, 0, 0.5);
+  text-align: right;
 }
 
 .overlay p {
   font-size: 0.85rem;
   color: var(--wheat);
   letter-spacing: 0.03em;
+  text-align: right;
 }
 
 /* ===== BODY ===== */
@@ -220,14 +226,16 @@ body {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-align: right;
 }
 
 /* LISTS */
 .recipe-section ul,
 .recipe-section ol {
-  padding-left: 20px;
+  padding-right: 20px;
   color: var(--bark);
   line-height: 1.7;
+  direction: rtl;
 }
 
 /* ===== INFO BOX ===== */
@@ -235,6 +243,7 @@ body {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  direction: rtl;
 }
 
 .info-box span {
