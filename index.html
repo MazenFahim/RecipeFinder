@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
 
-<head>
-  <title>Home</title>
-  <link rel="stylesheet" href="styles/style.css">
-</head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-logo">
+        🍽️ RecipeFinder
+      </div>
 
-<body>
-  <nav class="navbar">
-    <div class="nav-logo">
-      🍽️ RecipeFinder
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+
+      <div class="nav-search">
+        <input type="text" placeholder="Search recipes...">
+        <button>🔍</button>
+      </div>
+    </nav>
+
+    <div class="Hottest-meals">
+      <div class="headlines">
+        <p id="yummy-headline">Most Viewed 🔥😋</p>
+      </div>
+      <div class="carousel-track">
+        <div class="wrapper">
+          <img src="images/bamia_lahem.jpg" alt="bamia_lahem" class="item">
+          <img src="images/Molokhia.png" alt="Molokhia" class="item">
+          <img src="images/dajaj_cream.png" alt="dajaj_cream" class="item">
+          <img src="images/mesakhan.png" alt="mesakhan" class="item">
+          <img src="images/baklawa.png" alt="baklawa" class="item">
+
+          <img src="images/bamia_lahem.jpg" aria-hidden="true" class="item">
+          <img src="images/Molokhia.png" aria-hidden="true" class="item">
+          <img src="images/dajaj_cream.png" aria-hidden="true" class="item">
+          <img src="images/mesakhan.png" aria-hidden="true" class="item">
+          <img src="images/baklawa.png" aria-hidden="true" class="item">
+        </div>
+      </div>
     </div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="favorites.html">Favorites</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="signup.html">Sign Up</a></li>
-    </ul>
-
-    <div class="nav-search">
-      <input type="text" placeholder="Search recipes...">
-      <button>🔍</button>
+    <div class="filters">
+      <button class="filter-btn">حادق</button>
+      <button class="filter-btn">سريع التحضير</button>
+      <button class="filter-btn">نباتي</button>
+      <button class="filter-btn">حلو</button>
+      <button class="filter-btn">مصري</button>
+      <button class="filter-btn">فلسطيني</button>
+      <button class="filter-btn">سوري</button>
     </div>
-  </nav>
-  <div class="parentEg">
 
-  </div> <!-- final div -->
+    <div class="parentEg">
 
+    </div>
 
-</body>
-<script src="data.js"></script>
+  </body>
+  <script src="data.js"></script>
 </html>
