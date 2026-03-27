@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/edit_recipe.css">
     <title>Edit Recipe</title>
 </head>
 <body>
@@ -9,18 +12,20 @@
 </header>
 
 <section>
-    <a href="admin_dashboard.html">&lt; Back to Dashboard</a>
+    <a href="admin_dashboard.html" class="back-link">&lt; Back to Dashboard</a>
     <br><br>
 
-    <form action="#" method="GET">
-        <label for="searchID">Enter Recipe ID to Edit: </label>
-        <input type="text" id="searchID" name="searchID" placeholder="e.g. REC-001">
-        <input type="button" value="Search">
-    </form>
+    <div class="search-group">
+        <div style="flex-grow: 1;">
+            <label for="searchID">Enter Recipe ID to Edit: </label>
+            <input type="text" id="searchID" name="searchID" placeholder="e.g. REC-001">
+        </div>
+        <input type="button" id="searchBtn" value="Search">
+    </div>
 
     <hr>
 
-    <form action="#" method="POST">
+    <form id="editRecipeForm">
         <table>
             <tr>
                 <td><label for="editRecipeName">Update Recipe Name:</label></td>
@@ -31,20 +36,23 @@
                 <td>
                     <select name="editCourse" id="editCourse">
                         <option value="" disabled selected>Select Course</option>
-                        <option value="1">Appetizers</option>
-                        <option value="2">Main Course</option>
-                        <option value="3">Dessert</option>
+                        <option value="Appetizers">Appetizers</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Dessert">Dessert</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td><label for="editIngredients">Update Ingredients:</label></td>
-                <td><textarea name="editIngredients" id="editIngredients" cols="20" rows="10" placeholder="Update Ingredients"></textarea></td>
+                <td><textarea name="editIngredients" id="editIngredients" cols="20" rows="5" placeholder="Update Ingredients"></textarea></td>
             </tr>
         </table>
         <br>
         <input type="submit" value="Save Changes">
     </form>
 </section>
+
+<script src="data.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>

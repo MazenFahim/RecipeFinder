@@ -1,0 +1,64 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(to right, #fdfaf9, #f4eeee);
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #5e1914;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+#recipesContainer {
+  width: 90%;
+  margin: auto;
+}
+
+.recipe-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.recipe-table thead {
+  background: #800020;
+  color: white;
+}
+
+.recipe-table th {
+  padding: 16px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.recipe-table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #f2eaea;
+  color: #4a4a4a;
+}
+
+.recipe-table tbody tr:hover {
+  background-color: #fff5f5;
+  transition: 0.3s;
+}
+
+.recipe-table tbody tr:nth-child(even) {
+  background-color: #faf7f7;
+}
+
+#recipesContainer p {
+  text-align: center;
+  font-size: 18px;
+  color: #8c7674;
+  margin-top: 50px;
+}
