@@ -1,50 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Edit Recipe</title>
+
+    <!-- 🔗 ربط الـ CSS -->
+    <link rel="stylesheet" href="styles/edit-recipe.css">
 </head>
+
 <body>
+
 <header>
     <h1>Edit Existing Recipe</h1>
 </header>
 
-<section>
-    <a href="admin_dashboard.html">&lt; Back to Dashboard</a>
-    <br><br>
+<section class="container">
+    <a href="admin_dashboard.html" class="back-link">&lt; Back to Dashboard</a>
 
-    <form action="#" method="GET">
-        <label for="searchID">Enter Recipe ID to Edit: </label>
-        <input type="text" id="searchID" name="searchID" placeholder="e.g. REC-001">
-        <input type="button" value="Search">
-    </form>
+    <div class="card">
+        <form action="#" method="GET" class="search-form">
+            <label for="searchID">Enter Recipe ID to Edit:</label>
+            <div class="search-box">
+                <input type="text" id="searchID" name="searchID" placeholder="e.g. REC-1">
+                <input type="button" value="Search" onclick="searchRecipe()">
+            </div>
+        </form>
+    </div>
 
-    <hr>
+    <div class="card">
+        <form action="#" method="POST" id="editForm">
+            <table class="form-table">
+                <tr>
+                    <td><label for="editRecipeName">Update Recipe Name:</label></td>
+                    <td><input type="text" id="editRecipeName" placeholder="Update name"></td>
+                </tr>
 
-    <form action="#" method="POST">
-        <table>
-            <tr>
-                <td><label for="editRecipeName">Update Recipe Name:</label></td>
-                <td><input type="text" id="editRecipeName" name="editRecipeName" placeholder="Update name"></td>
-            </tr>
-            <tr>
-                <td><label for="editCourse">Update Course:</label></td>
-                <td>
-                    <select name="editCourse" id="editCourse">
-                        <option value="" disabled selected>Select Course</option>
-                        <option value="1">Appetizers</option>
-                        <option value="2">Main Course</option>
-                        <option value="3">Dessert</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="editIngredients">Update Ingredients:</label></td>
-                <td><textarea name="editIngredients" id="editIngredients" cols="20" rows="10" placeholder="Update Ingredients"></textarea></td>
-            </tr>
-        </table>
-        <br>
-        <input type="submit" value="Save Changes">
-    </form>
+                <tr>
+                    <td><label for="editCourse">Update Course:</label></td>
+                    <td>
+                        <select id="editCourse">
+                            <option value="" disabled selected>Select Course</option>
+                            <option value="Appetizers">Appetizers</option>
+                            <option value="Main Course">Main Course</option>
+                            <option value="Dessert">Dessert</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="editIngredients">Update Ingredients:</label></td>
+                    <td>
+                        <textarea id="editIngredients" rows="5" placeholder="Update Ingredients"></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+            <input type="submit" value="Save Changes" class="save-btn">
+        </form>
+    </div>
 </section>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+<script>
+let currentId = "";
+
+function searchRecipe() {
+    const id = document.getElementById("searchID").value;
+    const recipe = getRecipes().find(r => r.recipeID === id);
+
+    if (!recipe) {
+        alert("Recipe not found!");
+        return;
+    }
+
+    currentId = id;
+
+    document.getElementById("editRecipeName").value = recipe.recipeName;
+    document.getElementById("editCourse").value = recipe.course;
+    document.getElementById("editIngredients").value = recipe.ingredients;
+}
+
+document.getElementById("editForm").onsubmit = function(e) {
+    e.preventDefault();
+
+    const updated = {
+        recipeID: currentId,
+        recipeName: document.getElementById("editRecipeName").value,
+        course: document.getElementById("editCourse").value,
+        ingredients: document.getElementById("editIngredients").value
+    };
+
+    if (!updated.recipeName || !updated.course) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    updateRecipe(updated);
+
+    alert("Recipe updated successfully ✅");
+};
+</script>
+
 </body>
 </html>

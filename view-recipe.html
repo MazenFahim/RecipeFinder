@@ -1,17 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Nothing Here</title>
-</head>
-<body>
-<header>
-    <h1>Work in Progress</h1>
-</header>
+  <meta charset="UTF-8">
+  <title>View Recipes</title>
 
-<section>
-    <h2>Nothing here yet</h2>
-    <br>
-    <a href="admin_dashboard.html">&lt; Back to Dashboard</a>
-</section>
+  <!-- 🔗 ربط الـ CSS -->
+  <link rel="stylesheet" href="styles/view-recipe.css">
+</head>
+
+<body>
+
+<h2>🍽️ All Recipes</h2>
+
+<div id="recipesContainer"></div>
+
+<!-- 🔗 ربط الـ JS -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+<script>
+function displayRecipes() {
+  const recipes = getRecipes();
+
+  if (recipes.length === 0) {
+    document.getElementById("recipesContainer").innerHTML = "<p>No recipes found</p>";
+    return;
+  }
+
+  let html = `
+    <table class="recipe-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Ingredients</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  recipes.forEach(recipe => {
+    html += `
+      <tr>
+        <td>${recipe.recipeID}</td>
+        <td>${recipe.recipeName}</td>
+        <td>${recipe.course}</td>
+        <td>${recipe.ingredients}</td>
+      </tr>
+    `;
+  });
+
+  html += `
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("recipesContainer").innerHTML = html;
+}
+
+displayRecipes();
+</script>
+
 </body>
 </html>
