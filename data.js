@@ -6,8 +6,8 @@ function initData() {
     }
 }
 
-function getRecipes() {
-    initData();
+function getAllRecipes() {   // convert it from getRecipes to getAllRecipes (admin can see all recipes including deleted)
+    initData(); 
     const data = localStorage.getItem(STORAGE_KEY);
     try {
         return JSON.parse(data);
@@ -17,13 +17,13 @@ function getRecipes() {
 }
 
 function saveRecipe(recipe) {
-    const recipes = getRecipes();
+    const recipes = getAllRecipes();
     recipes.push(recipe);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
 }
 
 function updateRecipe(updatedRecipe) {
-    let recipes = getRecipes();
+    let recipes = getAllRecipes();
     const index = recipes.findIndex(r => r.recipeID === updatedRecipe.recipeID);
     
     if (index !== -1) {
@@ -34,10 +34,23 @@ function updateRecipe(updatedRecipe) {
     return false;
 }
 
+// Soft delete: mark as deleted instead of removing from database
 function deleteRecipe(id) {
-    let recipes = getRecipes();
-    recipes = recipes.filter(r => r.recipeID !== id);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
+    let recipes = getAllRecipes();
+    const index = recipes.findIndex(r => r.recipeID === id.trim().toUpperCase());
+    if (index !== -1) {
+        recipes[index].deleted = true;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
+    }
+}
+
+
+// Display Recipes in User View 
+function getVisibleRecipes() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    const recipes = data ? JSON.parse(data) : [];
+
+    return recipes.filter(r => !r.deleted);
 }
 
 initData();

@@ -80,47 +80,55 @@ if (editForm) {
 document.addEventListener('DOMContentLoaded', displayRecipes);
 
 
-
+// Add Recipe Form Handling
 
 const addRecipeForm = document.getElementById("addRecipeForm");
+
 if (addRecipeForm) {
-    document.getElementById("recipeID").addEventListener("blur", () => validateField("recipeID"));
-    document.getElementById("recipeName").addEventListener("blur", () => validateField("recipeName"));
-    document.getElementById("Course").addEventListener("change", () => validateField("Course"));
-    document.getElementById("ingredientID").addEventListener("blur", () => validateField("ingredientID"));
-    document.getElementById("Ingredients").addEventListener("blur", () => validateField("Ingredients"));
+    addRecipeForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const newRecipe = {
+            recipeID: document.getElementById("recipeID").value.trim(),
+            recipeName: document.getElementById("recipeName").value.trim(),
+            course: document.getElementById("Course").value,
+            ingredientID: document.getElementById("ingredientID").value.trim(),
+            ingredients: document.getElementById("Ingredients").value.trim()
+        };
+
+        if ( !newRecipe.recipeID || !newRecipe.recipeID || !newRecipe.recipeName 
+            || !newRecipe.ingredientID || !newRecipe.ingredients) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        if (newRecipe.course === "Select Course") {
+            alert("Please select a course!");
+            return;
+        }
+
+        saveRecipe(newRecipe);
+        alert("Recipe saved successfully!");
+
+        addRecipeForm.reset();
+        window.location.href = "view-recipe.html";
+    });
 }
 
-
-function deleteRecipe() {
-
-    const id = prompt("Enter the Recipe ID to delete (e.g. REC-001):");
-
-    if (id === null) return;
-
-    if (id.trim() === "") {
-        alert("Please enter a Recipe ID.");
-        return;
-    }
-
-    const data = localStorage.getItem("recipes");        
-    const recipes = data ? JSON.parse(data) : [];  
-
-    const index = recipes.findIndex(r => r.recipeID === id.trim().toUpperCase());
-
-    if (index === -1) {
-        alert("Recipe not found.");
-        return;
-    }
-
-    recipes.splice(index, 1);
-
-    localStorage.setItem("recipes", JSON.stringify(recipes));
-
-    alert("Recipe deleted successfully!");
-}
-
+// Delete Recipe button Handling
 const deleteBtn = document.getElementById("deleteRecipeBtn");
+
 if (deleteBtn) {
-    deleteBtn.addEventListener("click", deleteRecipe);
+    deleteBtn.addEventListener("click", () => {
+        const id = prompt("Enter the Recipe ID:");
+
+        if (!id || id.trim() === "") {
+            alert("Invalid ID");
+            return;
+        }
+
+        deleteRecipe(id.trim().toUpperCase());
+        alert("Deleted successfully!");
+    });
 }
+

@@ -30,19 +30,24 @@
         <table>
             <tr>
                 <td><label for="recipeID">Recipe ID: </label></td>
-                <td><input type="text" id="recipeID" name="recipeID" placeholder="Enter recipe ID (REC-001)"></td>
-                <span class="error-message" id="recipeIDError"></span>
+                <td>
+                    <input type="text" id="recipeID" name="recipeID" placeholder="Enter recipe ID (REC-001)">
+                    <span class="error-message" id="recipeIDError"></span>
+                </td>
+            
             </tr>
             <tr>
                 <td><label for="recipeName">Recipe Name:</label></td>
-                <td><input type="text" id="recipeName" name="recipeName" placeholder="Enter the recipe name"></td>
-                <span class="error-message" id="recipeNameError"></span>
+                <td>
+                    <input type="text" id="recipeName" name="recipeName" placeholder="Enter the recipe name">
+                    <span class="error-message" id="recipeNameError"></span>
+                </td>
             </tr>
             <tr>
                 <td><label for="Course">Course:</label></td>
                 <td>
                     <select name="Course" id="Course">
-                        <option value="" disabled selected>Select Course</option>
+                        <option value="">Select Course</option>
                         <option value="1">Appetizers</option>
                         <option value="2">Main Course</option>
                         <option value="3">Dessert</option>
@@ -52,15 +57,19 @@
             </tr>
             <tr>
                 <td><label for="ingredientID">Ingredient ID:</label></td>
-                <td><input type="text" id="ingredientID" name="ingredientID" placeholder="Enter the Ingredient id"></td>
-                <span class="error-message" id="ingredientIDError"></span>
+                <td>
+                    <input type="text" id="ingredientID" name="ingredientID" placeholder="Enter the Ingredient id">
+                    <span class="error-message" id="ingredientIDError"></span>
+                </td>
             </tr>
             </tr>
             <tr>
                 <td><label for="Ingredients">Ingredients:</label></td>
-                <td><textarea name="Ingredients" id="Ingredients" cols="8" rows="4"
-                        placeholder="Enter Ingredients of this recipe"></textarea></td>
-                <span class="error-message" id="ingredientsError"></span>
+                <td>
+                    <textarea name="Ingredients" id="Ingredients" cols="8" rows="4"
+                        placeholder="Enter Ingredients of this recipe"></textarea>
+                    <span class="error-message" id="ingredientsError"></span>
+                    </td>
             </tr>
         </table>
         <br>
