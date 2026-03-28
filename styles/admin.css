@@ -295,6 +295,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: var(--ember);
+    transform: translateY(2px);
 }
 
 
@@ -305,10 +306,39 @@ form input[type="reset"] {
 
 form input[type="reset"]:hover {
     background-color: #ddd0b8;
+    transform: translateY(2px);
 }
 
 
 form input[type="submit"]:active,
 form input[type="reset"]:active {
     transform: scale(0.98);
+}
+
+
+.input-error {
+    border-color: #e05252 ;
+    box-shadow: 0 0 0 3px rgba(224, 82, 82, 0.15) ;
+}
+
+.input-success {
+    border-color: #4caf50 ;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+.error-message {
+    display: none;
+    color: #e05252;
+    font-size: 0.82rem;
+    font-family: 'Lato', sans-serif;
+    margin-top: 5px;
+}
+
+.success-message {
+    display: none;
+    color: #4caf50;
+    font-size: 0.9rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
 }

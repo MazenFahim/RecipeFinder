@@ -78,3 +78,49 @@ if (editForm) {
 }
 
 document.addEventListener('DOMContentLoaded', displayRecipes);
+
+
+
+
+const addRecipeForm = document.getElementById("addRecipeForm");
+if (addRecipeForm) {
+    document.getElementById("recipeID").addEventListener("blur", () => validateField("recipeID"));
+    document.getElementById("recipeName").addEventListener("blur", () => validateField("recipeName"));
+    document.getElementById("Course").addEventListener("change", () => validateField("Course"));
+    document.getElementById("ingredientID").addEventListener("blur", () => validateField("ingredientID"));
+    document.getElementById("Ingredients").addEventListener("blur", () => validateField("Ingredients"));
+}
+
+
+function deleteRecipe() {
+
+    const id = prompt("Enter the Recipe ID to delete (e.g. REC-001):");
+
+    if (id === null) return;
+
+    if (id.trim() === "") {
+        alert("Please enter a Recipe ID.");
+        return;
+    }
+
+    const data = localStorage.getItem("recipes");        
+    const recipes = data ? JSON.parse(data) : [];  
+
+    const index = recipes.findIndex(r => r.recipeID === id.trim().toUpperCase());
+
+    if (index === -1) {
+        alert("Recipe not found.");
+        return;
+    }
+
+    recipes.splice(index, 1);
+
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+
+    alert("Recipe deleted successfully!");
+}
+
+const deleteBtn = document.getElementById("deleteRecipeBtn");
+if (deleteBtn) {
+    deleteBtn.addEventListener("click", deleteRecipe);
+}
