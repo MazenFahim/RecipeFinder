@@ -380,7 +380,7 @@ form input[type="reset"]:active {
     transition: background-color 0.2s;
 }
 
-.recipe-table tr:hover {
+.recipe-table tr:not(.recipe-table thead tr):hover {
     background-color: #fcefe0;
 }
 
