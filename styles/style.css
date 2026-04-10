@@ -520,3 +520,45 @@ body {
 
   outline-color: #6e2105;
 }
+
+
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  z-index: 2;
+}
+
+.fav-btn:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.fav-btn:active {
+  transform: scale(0.92);
+}
+
+.fav-btn.active {
+  background: rgba(255, 80, 80, 0.18);
+  border-color: rgba(255, 100, 100, 0.5);
+}
+
+.fav-btn.active:hover {
+  background: rgba(255, 80, 80, 0.3);
+  border-color: rgba(255, 100, 100, 0.8);
+}
