@@ -34,11 +34,14 @@ function renderFavs() {
 
     card.innerHTML = `
       <div class="recipe-header">
-        <img src="${recipe.image}" alt="${recipe.name}">
-        <div class="overlay-meta">
-          <p class="desc">${recipe.desc}</p>
-          <p class="country-tag">${recipe.country}</p>
-        </div>
+          <img src="${recipe.image}" alt="Recipe">
+          <div class="overlay">
+            <h1>${recipe.name}</h1>
+            <div class="overlay-meta">
+              <p class="desc">${recipe.desc}</p>
+              <p class="country-tag">${recipe.country}</p>
+            </div>
+          </div>
         <button class="fav-btn active" onclick="toggleFav('${recipe.name}')">❤️</button>
       </div>
       <div class="recipe-body">

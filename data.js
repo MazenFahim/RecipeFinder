@@ -1222,49 +1222,45 @@ recipes.filter(recipe => recipe.isVisible).forEach(recipe => {
   card.classList.add("recipe-card");
   card.style.cursor = "pointer";
 const isFav = getFavs().includes(recipe.name);
-  card.innerHTML = `
-    <div class="recipe-header">
-    <img src="${recipe.image}" alt="Recipe">
-          <h1>${recipe.name}</h1>
-          <div class="overlay-meta">
-            <p class="desc">${recipe.desc}</p>
-            <p class="country-tag">${recipe.country}</p>
-              <button class="fav-btn ${isFav ? 'active' : ''}" 
+   card.innerHTML = `
+        <div class="recipe-header">
+          <img src="${recipe.image}" alt="Recipe">
+          <div class="overlay">
+            <h1>${recipe.name}</h1>
+            <div class="overlay-meta">
+              <p class="desc">${recipe.desc}</p>
+              <p class="country-tag">${recipe.country}</p>
+            </div>
+          </div>
+
+          <button 
+            class="fav-btn ${isFav ? 'active' : ''}" 
             data-name="${recipe.name}"
             onclick="toggleFav('${recipe.name}')">
-      ${isFav ? '❤️' : '🤍'}
-    </button>
-          </div>
-      </div>
-    </div>
+            ${isFav ? '❤️' : '🤍'}
+          </button>
 
-    <div class="recipe-body">
-
-      <div class="recipe-section">
-        <h3>😋 المكونات</h3>
-        <ul>
-          ${recipe.ingredients.map(item => `<li>${item}</li>`).join("")}
-        </ul>
-      </div>
-
-      <div class="recipe-section">
-        <h3>👨‍🍳 خطوات التحضير</h3>
-        <ol>
-          ${recipe.steps.map(step => `<li>${step}</li>`).join("")}
-        </ol>
-      </div>
-
-      <div class="recipe-section">
-        <h3>⏱ معلومات</h3>
-        <div class="info-box">
-          <span>⏰ ${recipe.time}</span>
-          <span>🔥 ${recipe.level}</span>
-          <span>💸 ${recipe.price}</span>
         </div>
-      </div>
 
-    </div>
-  `;
+        <div class="recipe-body">
+          <div class="recipe-section">
+            <h3>😋 المكونات</h3>
+            <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
+          </div>
+          <div class="recipe-section">
+            <h3>👨‍🍳 خطوات التحضير</h3>
+            <ol>${recipe.steps.map(s => `<li>${s}</li>`).join("")}</ol>
+          </div>
+          <div class="recipe-section">
+            <h3>⏱ معلومات</h3>
+            <div class="info-box">
+              <span>⏰ ${recipe.time}</span>
+              <span>🔥 ${recipe.level}</span>
+              <span>💸 ${recipe.price}</span>
+            </div>
+          </div>
+        </div>
+      `;
 
   parent.appendChild(card);
 });
