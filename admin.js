@@ -9,35 +9,34 @@ function displayRecipes() {
         return;
     }
 
-    let tableHTML = `
-        <table class="recipe-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Course</th>
-                    <th>Ingredient ID</th>
-                    <th>Ingredients</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
+    recipesContainer.innerHTML = ''; 
 
     recipes.forEach(recipe => {
-        tableHTML += `
-            <tr>
-                <td>${recipe.recipeID}</td>
-                <td>${recipe.recipeName}</td>
-                <td>${recipe.course}</td>
-                <td>${recipe.ingredientID}</td>
-                <td>${recipe.ingredients}</td>
-            </tr>
+        const recipeHTML = `
+            <div class="recipe-card">
+                <div class="card-header">
+                    <h3>${recipe.recipeName}</h3>
+                    <span class="course-badge">${recipe.course}</span>
+                </div>
+                <div class="card-body">
+                    <div class="field-label">Ingredients</div>
+                    <div class="ingredients-list">
+                        ${recipe.ingredients}
+                    </div>
+                    <div class="ingredient-id-box">
+                        <small>Ingredient Ref: ${recipe.ingredientID}</small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Recipe ID:</span>
+                    <span class="id-tag">${recipe.recipeID}</span>
+                </div>
+            </div>
         `;
+        recipesContainer.innerHTML += recipeHTML;
     });
-
-    tableHTML += '</tbody></table>';
-    recipesContainer.innerHTML = tableHTML;
 }
+
 
 const searchBtn = document.getElementById('searchBtn');
 const editForm = document.getElementById('editRecipeForm');

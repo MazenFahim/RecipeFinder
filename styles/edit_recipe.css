@@ -1,122 +1,200 @@
+/* ===== GLOBAL ===== */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(to right, #fdfaf9, #f4eeee);
     margin: 0;
-    padding: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f4f4;
+    padding-bottom: 50px;
 }
 
-header {
-    background-color: #800020;
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #2c2c2c;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.nav-logo {
+    color: #f39c12;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f39c12;
+}
+
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-search input {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #444;
+    background: #3d3d3d;
     color: white;
-    padding: 20px;
+    width: 280px;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.nav-search button {
+    background: #e74c3c;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+header h1 {
     text-align: center;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-size: 3rem;
+    color: #2c2c2c;
+    margin: 40px 0;
 }
 
 section {
-    background-color: white;
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    max-width: 650px;
-    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .back-link {
-    color: #800020;
     text-decoration: none;
+    color: #555;
     font-weight: bold;
-    display: inline-block;
-    margin-bottom: 20px;
-    transition: 0.3s;
+    font-size: 1.2rem;
 }
 
-.back-link:hover {
-    color: #5e1914;
-    transform: translateX(-5px);
-}
 
 .search-group {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
     display: flex;
-    gap: 10px;
     align-items: flex-end;
-    margin-bottom: 10px;
+    gap: 20px;
+    margin: 30px 0;
+    border: 1px solid #eee;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
+.search-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-box label {
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #5e1914;
 }
 
-input[type="text"], 
-select, 
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #f2eaea;
+#searchID {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
     border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 14px;
-    background-color: #fafafa;
-    margin-top: 5px;
 }
 
-textarea {
-    resize: vertical;
-}
-
-input[type="button"] {
-    background-color: #a67c52;
+#searchBtn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: #2c2c2c;
     color: white;
-    padding: 12px 25px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
-    height: 45px;
+}
+
+
+#editRecipeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+#editRecipeForm input, 
+#editRecipeForm select, 
+#editRecipeForm textarea {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    background: #fafafa;
+    outline: none;
+}
+
+#editRecipeForm input:focus, 
+#editRecipeForm textarea:focus {
+    border-color: #f39c12;
+    background: white;
 }
 
 input[type="submit"] {
-    background-color: #800020;
-    color: white;
-    padding: 15px;
+    background: #27ae60;
+    color: rgb(18, 15, 15);
     border: none;
-    border-radius: 8px;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    width: 100%;
+    text-transform: uppercase;
     margin-top: 20px;
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(128, 0, 32, 0.2);
-}
-
-input[type="button"]:hover {
-    background-color: #8c7674;
 }
 
 input[type="submit"]:hover {
-    background-color: #5e1914;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(128, 0, 32, 0.3);
-}
-
-table {
-    width: 100%;
-}
-
-table td {
-    padding: 10px 0;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #f2eaea;
-    margin: 30px 0;
+    background: #219150;
+    transform: translateY(-3px);
 }
