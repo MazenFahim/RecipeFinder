@@ -295,6 +295,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: var(--ember);
+    transform: translateY(2px);
 }
 
 
@@ -305,10 +306,115 @@ form input[type="reset"] {
 
 form input[type="reset"]:hover {
     background-color: #ddd0b8;
+    transform: translateY(2px);
 }
 
 
 form input[type="submit"]:active,
 form input[type="reset"]:active {
     transform: scale(0.98);
+}
+
+
+/* ========================================================= */
+/* ===== NEW STYLES (Appended below to strictly avoid editing previous code) ===== */
+/* ========================================================= */
+
+/* Upgraded Back Button Style - Overrides the old `.back` class */
+.back, .back-link {
+    background-color: var(--espresso) !important;
+    color: var(--parchment) !important;
+    text-decoration: none !important;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: 2px solid var(--espresso) !important;
+    display: inline-block;
+    font-family: 'Lato', sans-serif !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(28, 23, 18, 0.1);
+    font-size: 0.95rem !important;
+    margin-bottom: 25px !important;
+    margin-top: 10px;
+}
+
+.back:hover, .back-link:hover {
+    background-color: var(--brick) !important;
+    border-color: var(--brick) !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+/* ===== RECIPE VIEW TABLE STYLES ===== */
+.recipe-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff8ee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.1);
+    border: 1px solid var(--parchment-dark);
+}
+
+.recipe-table thead {
+    background-color: var(--bark);
+    color: var(--parchment);
+}
+
+.recipe-table th {
+    padding: 16px 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.recipe-table tbody {
+    text-align: center;
+    color: var(--espresso);
+}
+
+.recipe-table tr {
+    border-bottom: 1px solid var(--parchment-dark);
+    transition: background-color 0.2s;
+}
+
+.recipe-table tr:not(.recipe-table thead tr):hover {
+    background-color: #fcefe0;
+}
+
+.recipe-table td {
+    padding: 14px 10px;
+}
+
+/* ===== DELETE BUTTON STYLES ===== */
+.btn-delete-recipe {
+    background-color: var(--brick);
+    color: var(--parchment);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-delete-recipe:hover {
+    background-color: var(--ember);
+    transform: translateY(-2px);
+}
+
+.btn-delete-recipe:active {
+    transform: scale(0.95);
+}
+
+/* ===== NO DATA MESSAGE ===== */
+.no-data {
+    text-align: center;
+    color: var(--bark);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 40px;
 }

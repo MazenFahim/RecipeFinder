@@ -1,50 +1,50 @@
 /* ===== GLOBAL ===== */
 :root {
-  --primary-color: #f39c12;
-  --bg-color: #f8f9fa;
+  --primary-color: #3f0b0b;
+  --bg-color: #fdf6e9;
   --dark-bg: #2c2c2c;
-  --card-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
   background: var(--bg-color);
-  padding-top: 90px;
+  padding-top: 110px;
 }
 
 /* ===== NAVBAR ===== */
 .navbar {
   background: var(--dark-bg);
-  padding: 15px 50px;
+  padding: 20px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .nav-logo {
   color: var(--primary-color);
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 2.2rem;
+  font-weight: 900;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 35px;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   transition: 0.3s;
 }
 
@@ -55,59 +55,87 @@ body {
 .nav-search {
   display: flex;
   background: #444;
-  border-radius: 25px;
+  border-radius: 30px;
   padding: 5px 15px;
+  gap: 10px;
 }
 
 .nav-search input {
   background: transparent;
   border: none;
   color: white;
-  padding: 8px;
+  padding: 10px;
   outline: none;
-  width: 200px;
+  width: 250px;
+  font-size: 1rem;
 }
 
 .nav-search button {
   background: #e74c3c;
   border: none;
   color: white;
-  padding: 8px 18px;
-  border-radius: 20px;
+  padding: 10px 25px;
+  border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
 }
 
+
 .page {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 20px;
 }
 
-h2 {
+.page-header {
   text-align: center;
+  margin-bottom: 50px;
+}
+
+h2 {
   color: #2c3e50;
-  font-size: 2.2rem;
-  margin-bottom: 5px;
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 .info-bar {
-  text-align: center;
   color: #7f8c8d;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
+
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--primary-color);
+  color: white !important;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+  border: 2px solid transparent;
+}
+
+.back-link:hover {
+  background: #571e0a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
 
 #recipesContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 35px;
 }
-
 
 .recipe-card {
   background: white;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
   border: 1px solid #eee;
@@ -117,72 +145,60 @@ h2 {
 }
 
 .recipe-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
 }
 
-
 .card-header {
-  background: #fdfdfd;
-  padding: 20px;
-  border-bottom: 1px solid #f1f1f1;
+  background: #fafafa;
+  padding: 25px;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .card-header h3 {
   margin: 0;
   color: #2c3e50;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .course-badge {
   display: inline-block;
-  background: #e1f5fe;
-  color: #03a9f4;
-  padding: 4px 12px;
+  background: #fff3e0;
+  color: #571e0a;
+  padding: 6px 15px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: bold;
-  margin-top: 8px;
+  margin-top: 12px;
   text-transform: uppercase;
 }
 
 .card-body {
-  padding: 20px;
-}
-
-.field-label {
-  font-size: 0.8rem;
-  color: #95a5a6;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-
-.field-value {
-  color: #34495e;
-  font-weight: 500;
-  margin-bottom: 15px;
-  line-height: 1.4;
+  padding: 25px;
+  flex-grow: 1;
 }
 
 .ingredients-list {
   background: #f9f9f9;
-  padding: 12px;
-  border-radius: 10px;
-  border-left: 4px solid var(--primary-color);
+  padding: 15px;
+  border-radius: 12px;
+  border-left: 5px solid var(--primary-color);
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.6;
 }
 
-
 .card-footer {
-  padding: 15px 20px;
-  background: #2c2c2c;
-  color: var(--primary-color);
+  padding: 15px 25px;
+  background: var(--dark-bg);
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .id-tag {
-  font-family: monospace;
+  color: var(--primary-color);
+  font-family: 'Courier New', monospace;
   font-weight: bold;
 }

@@ -135,7 +135,7 @@ section {
 #searchBtn {
     padding: 15px 40px;
     font-size: 1.2rem;
-    background: #2c2c2c;
+    background: #c18d13;
     color: white;
     border: none;
     border-radius: 8px;
@@ -182,7 +182,7 @@ section {
 
 input[type="submit"] {
     background: #27ae60;
-    color: rgb(18, 15, 15);
+    color:#571e0a;
     border: none;
     padding: 20px;
     font-size: 1.5rem;

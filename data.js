@@ -6,7 +6,8 @@ function initData() {
     }
 }
 
-function getRecipes() {
+// Unified function name for reading all recipes
+function getAllRecipes() {
     initData();
     const data = localStorage.getItem(STORAGE_KEY);
     try {
@@ -17,15 +18,15 @@ function getRecipes() {
 }
 
 function saveRecipe(recipe) {
-    const recipes = getRecipes();
+    const recipes = getAllRecipes();
     recipes.push(recipe);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
 }
 
 function updateRecipe(updatedRecipe) {
-    let recipes = getRecipes();
+    let recipes = getAllRecipes();
     const index = recipes.findIndex(r => r.recipeID === updatedRecipe.recipeID);
-    
+
     if (index !== -1) {
         recipes[index] = updatedRecipe;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
@@ -35,28 +36,14 @@ function updateRecipe(updatedRecipe) {
 }
 
 function deleteRecipe(id) {
-    let recipes = getRecipes();
-    recipes = recipes.filter(r => r.recipeID !== id);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
+    let recipes = getAllRecipes();
+    // Find and physically remove the recipe from the array
+    const index = recipes.findIndex(r => r.recipeID === id.trim().toUpperCase());
+    if (index !== -1) {
+        recipes.splice(index, 1);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
+    }
 }
 
 initData();
 
-
-/- For Test View_recipe -/
-if (getRecipes().length === 0) {
-    saveRecipe({
-        recipeID: "REC-001",
-        recipeName: "Kushary",
-        course: "Main Course",
-        ingredientID: "ING-001",
-        ingredients: "Rice, Lentils, Pasta, Tomato Sauce"
-    });
-    saveRecipe({
-        recipeID: "REC-002",
-        recipeName: "Konafa",
-        course: "Dessert",
-        ingredientID: "ING-002",
-        ingredients: "Pastry, Cream, Syrup"
-    });
-}

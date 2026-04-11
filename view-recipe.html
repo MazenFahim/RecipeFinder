@@ -1,46 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>View Recipes</title>
-  <link rel="stylesheet" href="styles/view-recipe.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipes - Professional System</title>
+    <link rel="stylesheet" href="styles/view-recipe.css">
 </head>
-
 <body>
 
-<!-- ===== NAVBAR ===== -->
 <nav class="navbar">
     <a href="admin_dashboard.html" class="nav-logo">Recipe System</a>
-
     <ul class="nav-links">
         <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="#">Add Recipe</a></li>
-        <li><a href="view-recipes.html">View Recipes</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="add-recipe.html">Add Recipe</a></li>
+        <li><a href="view-recipe.html">View Recipes</a></li>
+        <li><a href="index.html">Logout</a></li>
     </ul>
-
-    <div class="nav-search">
-        <input type="text" placeholder="Search recipes..." id="searchInput">
-        <button id="searchBtn">Search</button>
-    </div>
 </nav>
 
-<!-- ===== PAGE CONTENT ===== -->
 <div class="page">
+    <header class="page-header">
+        <h2>🍽️ All Recipes</h2>
+        <a href="admin_dashboard.html" class="back-link">← Back to Dashboard</a>
+    </header>
 
-    <h2>🍽️ All Recipes</h2>
-
-    
-    <div class="info-bar">
-        <span>Manage all recipes from here</span>
-    </div>
-
-    <div id="recipesContainer"></div>
-
+    <div id="recipesContainer"></div> 
 </div>
 
 <script src="data.js"></script>
 <script src="admin.js"></script>
-
-</body>
-</html>
