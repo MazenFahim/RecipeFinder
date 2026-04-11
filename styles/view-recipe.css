@@ -1,6 +1,6 @@
-/* ===== GLOBAL ===== */
 :root {
   --primary-color: #3f0b0b;
+  --accent-color: #f39c12;
   --bg-color: #fdf6e9;
   --dark-bg: #2c2c2c;
   --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -13,7 +13,6 @@ body {
   padding-top: 110px;
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
   background: var(--dark-bg);
   padding: 20px 50px;
@@ -27,7 +26,7 @@ body {
 }
 
 .nav-logo {
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-size: 2.2rem;
   font-weight: 900;
   text-decoration: none;
@@ -49,38 +48,8 @@ body {
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
-
-.nav-search {
-  display: flex;
-  background: #444;
-  border-radius: 30px;
-  padding: 5px 15px;
-  gap: 10px;
-}
-
-.nav-search input {
-  background: transparent;
-  border: none;
-  color: white;
-  padding: 10px;
-  outline: none;
-  width: 250px;
-  font-size: 1rem;
-}
-
-.nav-search button {
-  background: #e74c3c;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 
 .page {
   max-width: 1250px;
@@ -99,32 +68,23 @@ h2 {
   margin-bottom: 10px;
 }
 
-.info-bar {
-  color: #7f8c8d;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-
 .back-link {
   display: inline-block;
   text-decoration: none;
-  background: var(--primary-color);
+  background: #1a1a1a;
   color: white !important;
   padding: 12px 30px;
-  border-radius: 10px;
+  border-radius: 50px;
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 15px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-  border: 2px solid transparent;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .back-link:hover {
-  background: #571e0a;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+  background: var(--primary-color);
+  transform: translateX(-5px);
 }
 
 #recipesContainer {
@@ -139,9 +99,7 @@ h2 {
   overflow: hidden;
   box-shadow: var(--card-shadow);
   border: 1px solid #eee;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  transition: 0.3s;
 }
 
 .recipe-card:hover {
@@ -151,7 +109,7 @@ h2 {
 .card-header {
   background: #fafafa;
   padding: 25px;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .card-header h3 {
@@ -174,14 +132,13 @@ h2 {
 
 .card-body {
   padding: 25px;
-  flex-grow: 1;
 }
 
 .ingredients-list {
   background: #f9f9f9;
   padding: 15px;
   border-radius: 12px;
-  border-left: 5px solid var(--primary-color);
+  border-left: 5px solid var(--accent-color);
   font-size: 1.15rem;
   color: #444;
   line-height: 1.6;
@@ -198,7 +155,7 @@ h2 {
 }
 
 .id-tag {
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-family: 'Courier New', monospace;
   font-weight: bold;
 }

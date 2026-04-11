@@ -1,200 +1,198 @@
-/* ===== GLOBAL ===== */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f4f4;
-    padding-bottom: 50px;
+:root {
+  --primary-color: #3f0b0b;
+  --accent-color: #f39c12;
+  --bg-color: #fdf6e9;
+  --white: #ffffff;
 }
 
-/* ===== NAVBAR ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg-color);
+  padding-top: 110px;
+}
+
 .navbar {
-    background: #2c2c2c;
-    padding: 20px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  background: #2c2c2c;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .nav-logo {
-    color: #f39c12;
-    font-size: 2.2rem;
-    font-weight: 900;
-    text-decoration: none;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+  color: var(--accent-color);
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 40px;
 }
 
 .nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: 600;
-    transition: 0.3s;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-.nav-links a:hover {
-    color: #f39c12;
+section {
+  max-width: 800px;
+  margin: 40px auto;
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-
-.nav-search {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  background: #1a1a1a;
+  color: white !important;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  transition: 0.3s;
 }
 
-.nav-search input {
-    padding: 12px 20px;
-    border-radius: 30px;
-    border: 2px solid #444;
-    background: #3d3d3d;
-    color: white;
-    width: 280px;
-    font-size: 1.1rem;
-    outline: none;
+.search-group {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 30px;
+  border: 1px solid #eee;
 }
 
-.nav-search button {
-    background: #e74c3c;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 25px;
-    color: white;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
+.search-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
+#searchID, #editRecipeName, #editCourse, #editIngredients {
+  padding: 15px;
+  font-size: 1.1rem;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
+  outline: none;
+}
 
+#searchBtn {
+  padding: 15px 30px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+input[type="submit"] {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 18px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background: #571e0a;
+  transform: translateY(-3px);
+}
 header h1 {
     text-align: center;
-    font-size: 3rem;
-    color: #2c2c2c;
-    margin: 40px 0;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 section {
     max-width: 850px;
-    margin: 0 auto;
-    background: white;
+    margin: 20px auto;
+    background: var(--white);
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
 }
-
-.back-link {
-    text-decoration: none;
-    color: #555;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
 
 .search-group {
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 12px;
+    background: #fffcf5;
+    padding: 30px;
+    border-radius: 15px;
     display: flex;
     align-items: flex-end;
-    gap: 20px;
-    margin: 30px 0;
-    border: 1px solid #eee;
-}
-
-.search-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.search-box label {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-#searchID {
-    padding: 15px;
-    font-size: 1.2rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    gap: 15px;
+    margin-bottom: 40px;
+    border: 2px dashed #eecb8d;
 }
 
 #searchBtn {
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    background: #c18d13;
+    padding: 15px 35px;
+    background: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-
-#editRecipeForm {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.form-group label {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-}
-
-#editRecipeForm input, 
-#editRecipeForm select, 
-#editRecipeForm textarea {
-    padding: 15px;
-    font-size: 1.2rem;
-    border: 2px solid #eee;
     border-radius: 10px;
-    background: #fafafa;
-    outline: none;
+    cursor: pointer;
+    font-weight: 800;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.2);
 }
 
-#editRecipeForm input:focus, 
-#editRecipeForm textarea:focus {
-    border-color: #f39c12;
-    background: white;
+#searchBtn:hover {
+    background: #d68910;
+    transform: scale(1.02);
 }
 
 input[type="submit"] {
-    background: #27ae60;
-    color:#571e0a;
+    background: var(--primary-color);
+    color: var(--white);
     border: none;
     padding: 20px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 900;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     text-transform: uppercase;
-    margin-top: 20px;
-    transition: 0.3s;
-}
-
-input[type="submit"]:hover {
-    background: #219150;
-    transform: translateY(-3px);
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(63, 11, 11, 0.2);
 }
