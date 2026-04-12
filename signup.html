@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            🍽️ RecipeFinder
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="favourites.html">Favourites</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+
+        <div class="nav-search">
+            <input type="text" placeholder="Search recipes...">
+            <button>🔍</button>
+        </div>
+    </nav>
+
+    <main class="sign-up-container">
+        <div class="sign-up-card">
+            <span id="sign-up-text">Sign up</span>
+            <span class="subtitle">Sign up to continue</span>
+
+            <form>
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                </div>
+
+                <div class="remember-container">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+
+                <button type="button" id="sign-up-btn">Sign up</button>
+            </form>
+
+            <div class="already-have">
+                <span id="have-acc">Already have an account?</span>
+                <a href="login.html" id="sign-in-link">Sign in</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
