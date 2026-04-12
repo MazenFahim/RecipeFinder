@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html >
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Favourites</title>
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/favourites.css">
 </head>
-<body>
+<body class="favourites-page">
   <nav class="navbar">
       <div class="nav-logo">
         🍽️ RecipeFinder
@@ -24,10 +25,13 @@
         <button>🔍</button>
       </div>
     </nav>
-  <div class="page-header">
-    <h1>وصفاتي المفضلة ❤️</h1>
-    <p id="fav-subtitle">الوصفات التي حفظتها لترجع إليها</p>
-  </div>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-kicker">Saved Collection</p>
+      <h1>وصفاتي المفضلة ❤️</h1>
+      <p id="fav-subtitle">الوصفات التي حفظتها لترجع إليها</p>
+    </div>
+  </header>
 
   <div class="parentEg" id="favGrid"></div>
 

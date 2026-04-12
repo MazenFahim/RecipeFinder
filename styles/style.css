@@ -9,6 +9,8 @@
   --wheat: #F5C784;
   --parchment: #FAF0E0;
   --parchment-dark: #F0E2C8;
+  --nav-height: 68px;
+  --nav-control-height: 36px;
 }
 
 * {
@@ -25,7 +27,9 @@ body {
 /* ===== NAVBAR ===== */
 .navbar {
   background: var(--espresso);
-  padding: 14px 30px;
+  height: var(--nav-height);
+  min-height: var(--nav-height);
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,20 +46,31 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 100%;
   gap: 25px;
+  min-height: var(--nav-height);
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--nav-control-height);
+  white-space: nowrap;
   color: var(--parchment-dark);
   text-decoration: none;
   font-size: 0.95rem;
+  line-height: 1;
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
@@ -68,11 +83,14 @@ body {
 .nav-search {
   display: flex;
   align-items: center;
+  height: 100%;
+  min-height: var(--nav-height);
   gap: 6px;
 }
 
 .nav-search input {
-  padding: 7px 14px;
+  height: var(--nav-control-height);
+  padding: 0 14px;
   border: 1px solid var(--bark);
   border-radius: 20px;
   background: var(--bark);
@@ -97,7 +115,11 @@ body {
   background: var(--brick);
   border: none;
   border-radius: 20px;
-  padding: 7px 14px;
+  height: var(--nav-control-height);
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--parchment);
   cursor: pointer;
   font-size: 0.9rem;
@@ -531,8 +553,8 @@ body {
   border-radius: 50%;
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   cursor: pointer;
   display: flex;
   align-items: center;
