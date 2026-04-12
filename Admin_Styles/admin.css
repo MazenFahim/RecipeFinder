@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&display=swap');
+
+/* ===== PALETTE VARIABLES (From Front-End) ===== */
+:root {
+    --espresso:       #1C1712;
+    --bark:           #3D2B1F;
+    --brick:          #C1440E;
+    --ember:          #E07B39;
+    --wheat:          #F5C784;
+    --parchment:      #FAF0E0;
+    --parchment-dark: #F0E2C8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--parchment);
+    font-family: 'Lato', sans-serif;
+    color: var(--espresso);
+}
+
+/* ===== NAVBAR (Exactly matching Front-End) ===== */
+.navbar {
+    background: var(--espresso);
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(28, 23, 18, 0.5);
+    border-bottom: 2px solid var(--brick);
+}
+
+.nav-logo {
+    color: var(--wheat);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--parchment-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--wheat);
+}
+
+/* ===== ADMIN DASHBOARD SPECIFIC STYLES ===== */
+/* Blended perfectly into the Front-End Theme */
+
+.admin-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fdecd2;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
+    border: 1px solid var(--parchment-dark);
+}
+
+header h1 {
+    text-align: center;
+    color: var(--brick);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--bark);
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+h3 {
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 10px;
+    color: var(--espresso);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.dashboard-menu {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-menu li {
+    background: var(--parchment);
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--parchment-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-menu li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(28, 23, 18, 0.12);
+}
+
+.dashboard-menu p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--espresso);
+}
+
+.dashboard-menu button {
+    background-color: var(--bark);
+    color: var(--parchment);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.dashboard-menu button:hover {
+    background-color: var(--ember);
+}
+
+.dashboard-menu button:active {
+    transform: scale(0.98);
+}
+
+
+.dashboard-menu .delete-btn {
+    background-color: var(--brick);
+}
+
+.dashboard-menu .delete-btn:hover {
+    background-color: #a33507;
+}
+
+
+/* Add Recipe Styles */
+
+h1 {
+    text-align: center;
+    color: var(--brick);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+section {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff8ee;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
+    border: 1px solid var(--parchment-dark);
+}
+
+section a {
+    color: var(--bark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+section a:hover {
+    color: var(--brick);
+}
+
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form table td {
+    padding: 10px 12px;
+    vertical-align: top;
+}
+
+form label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: var(--bark);
+}
+
+.back{
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 10px;
+    color: var(--espresso);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+
+form input[type="text"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 8px;
+    background-color: var(--parchment);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--espresso);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+form input[type="text"]:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--ember);
+    box-shadow: 0 0 0 3px rgba(224, 123, 57, 0.15);
+}
+
+
+form input[type="text"]::placeholder,
+form textarea::placeholder {
+    color: #b0a090;
+    font-style: italic;
+}
+
+form select {
+    cursor: pointer;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%233D2B1F' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-position: right 14px center;
+    padding-right: 36px;
+
+}
+
+
+form textarea {
+    resize: vertical;
+    min-height: 50px;
+    line-height: 1.6;
+}
+
+
+form input[type="submit"],
+form input[type="reset"] {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-right: 12px;
+}
+
+
+form input[type="submit"] {
+    background-color: var(--bark);
+    color: var(--parchment);
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--ember);
+    transform: translateY(2px);
+}
+
+
+form input[type="reset"] {
+    background-color: var(--parchment-dark);
+    color: var(--bark);
+}
+
+form input[type="reset"]:hover {
+    background-color: #ddd0b8;
+    transform: translateY(2px);
+}
+
+
+form input[type="submit"]:active,
+form input[type="reset"]:active {
+    transform: scale(0.98);
+}
+
+
+/* ========================================================= */
+/* ===== NEW STYLES (Appended below to strictly avoid editing previous code) ===== */
+/* ========================================================= */
+
+/* Upgraded Back Button Style - Overrides the old `.back` class */
+.back, .back-link {
+    background-color: var(--espresso) !important;
+    color: var(--parchment) !important;
+    text-decoration: none !important;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: 2px solid var(--espresso) !important;
+    display: inline-block;
+    font-family: 'Lato', sans-serif !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(28, 23, 18, 0.1);
+    font-size: 0.95rem !important;
+    margin-bottom: 25px !important;
+    margin-top: 10px;
+}
+
+.back:hover, .back-link:hover {
+    background-color: var(--brick) !important;
+    border-color: var(--brick) !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+/* ===== RECIPE VIEW TABLE STYLES ===== */
+.recipe-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff8ee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.1);
+    border: 1px solid var(--parchment-dark);
+}
+
+.recipe-table thead {
+    background-color: var(--bark);
+    color: var(--parchment);
+}
+
+.recipe-table th {
+    padding: 16px 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.recipe-table tbody {
+    text-align: center;
+    color: var(--espresso);
+}
+
+.recipe-table tr {
+    border-bottom: 1px solid var(--parchment-dark);
+    transition: background-color 0.2s;
+}
+
+.recipe-table tr:not(.recipe-table thead tr):hover {
+    background-color: #fcefe0;
+}
+
+.recipe-table td {
+    padding: 14px 10px;
+}
+
+/* ===== DELETE BUTTON STYLES ===== */
+.btn-delete-recipe {
+    background-color: var(--brick);
+    color: var(--parchment);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-delete-recipe:hover {
+    background-color: var(--ember);
+    transform: translateY(-2px);
+}
+
+.btn-delete-recipe:active {
+    transform: scale(0.95);
+}
+
+/* ===== NO DATA MESSAGE ===== */
+.no-data {
+    text-align: center;
+    color: var(--bark);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 40px;
+}

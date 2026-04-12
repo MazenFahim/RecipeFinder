@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipes - Professional System</title>
+    <link rel="stylesheet" href="Admin_Styles/view-recipe.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="admin_dashboard.html" class="nav-logo">Recipe System</a>
+    <ul class="nav-links">
+        <li><a href="admin_dashboard.html">Dashboard</a></li>
+        <li><a href="add-recipe.html">Add Recipe</a></li>
+        <li><a href="view-recipe.html">View Recipes</a></li>
+        <li><a href="index.html">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="page">
+    <header class="page-header">
+        <h2>🍽️ All Recipes</h2>
+        <a href="admin_dashboard.html" class="back-link">← Back to Dashboard</a>
+    </header>
+
+    <div id="recipesContainer"></div> 
+</div>
+
+<script src="data.js"></script>
+<script src="admin.js"></script>
