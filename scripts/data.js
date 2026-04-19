@@ -70,6 +70,12 @@ function toggleFav(name) {
   });
 }
 
+function logout() {
+    
+   sessionStorage.removeItem('currentUser');
+    window.location.href = 'login.html';
+}
+
 
 const recipes = [
   {
