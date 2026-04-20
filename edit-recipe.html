@@ -34,48 +34,49 @@
     </ul>
 </nav>
 
+<div class="admin-container">
+    <header>
+        <h1>Edit Existing Recipe</h1>
+    </header>
+    <section>
+        <a href="admin_dashboard.html" class="back-link">&lt; Back to Dashboard</a>
 
-<header>
-    <h1>Edit Existing Recipe</h1>
-</header>
-<section>
-    <a href="admin_dashboard.html" class="back-link">&lt; Back to Dashboard</a>
-
-    <div class="search-group">
-        <div class="search-box">
-            <label for="searchID">Enter Recipe ID to Edit:</label>
-            <input type="text" id="searchID" placeholder="e.g. REC-001">
-        </div>
-        <input type="button" id="searchBtn" value="Search">
-    </div>
-
-    <hr>
-
-    <form id="editRecipeForm">
-        <div class="form-group">
-            <label for="editRecipeName">Update Recipe Name:</label>
-            <input type="text" id="editRecipeName">
+        <div class="search-group">
+            <div class="search-box">
+                <label for="searchID">Enter Recipe ID to Edit:</label>
+                <input type="text" id="searchID" placeholder="e.g. REC-001">
+            </div>
+            <input type="button" id="searchBtn" value="Search">
         </div>
 
-        <div class="form-group">
-            <label for="editCourse">Update Course:</label>
-            <select id="editCourse">
-                <option value="" disabled selected>Select Course</option>
-                <option value="Appetizers">Appetizers</option>
-                <option value="Main Course">Main Course</option>
-                <option value="Dessert">Dessert</option>
-            </select>
-        </div>
+        <hr>
 
-        <div class="form-group">
-            <label for="editIngredients">Update Ingredients:</label>
-            <textarea id="editIngredients" rows="5"></textarea>
-        </div>
+        <form id="editRecipeForm">
+            <div class="form-group">
+                <label for="editRecipeName">Update Recipe Name:</label>
+                <input type="text" id="editRecipeName">
+            </div>
 
-        <input type="submit" value="Save Changes">
-    </form>
-</section>
-    <script src="scripts/data.js"></script>
-    <script src="scripts/admin.js"></script>
+            <div class="form-group">
+                <label for="editCourse">Update Course:</label>
+                <select id="editCourse">
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="Appetizers">Appetizers</option>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="editIngredients">Update Ingredients:</label>
+                <textarea id="editIngredients" rows="5"></textarea>
+            </div>
+
+            <input type="submit" value="Save Changes">
+        </form>
+    </section>
+</div>
+<script src="scripts/data.js"></script>
+<script src="scripts/admin.js"></script>
 </body>
 </html>
