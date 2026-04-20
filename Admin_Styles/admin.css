@@ -26,7 +26,7 @@ body {
 /* ===== NAVBAR (Exactly matching Front-End) ===== */
 .navbar {
     background: var(--espresso);
-    padding: 4px 30px;
+    padding: 14px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
