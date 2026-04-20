@@ -71,12 +71,37 @@ body {
 .admin-container {
     max-width: 800px;
     margin: 40px auto;
+    background: #fdecd2;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
+    border: 1px solid var(--parchment-dark);
+}
+
+
+section {
+    max-width: 800px;
+    margin: 40px auto;
     background: #fff8ee;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 6px 24px rgba(28, 23, 18, 0.18);
     border: 1px solid var(--parchment-dark);
 }
+
+section a {
+    color: var(--bark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+section a:hover {
+    color: var(--brick);
+}
+
 
 .back-link {
     display: inline-block;
@@ -189,7 +214,7 @@ header h1 {
 }
 
 input[type="submit"] {
-    background: var(--primary-color);
+    background: var(--bark);
     color: var(--white);
     border: none;
     padding: 20px;
