@@ -4,6 +4,7 @@ function displayRecipes() {
 
     // FIX: Changed from getRecipes() to getAllRecipes() to match data.js
     const recipes = getAllRecipes();
+    // const visibleRecipes = recipes.filter(recipe => recipe.isVisible !== false);
 
     if (!recipes || recipes.length === 0) {
         recipesContainer.innerHTML = `
@@ -147,7 +148,8 @@ if (addForm) {
             recipeName: recipeName,
             course: courseText, // Save the text (e.g. "Main Course") instead of "1" or "2"
             ingredientID: ingredientID,
-            ingredients: ingredients
+            ingredients: ingredients,
+            isVisible: true
         };
 
         // Save to localStorage using data.js function

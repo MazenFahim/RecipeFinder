@@ -41,6 +41,7 @@ function deleteRecipe(id) {
     const index = recipes.findIndex(r => r.recipeID === id.trim().toUpperCase());
     if (index !== -1) {
         recipes.splice(index, 1);
+        // recipes[index].isVisible = false;  Mark as invisible (soft delete)
         localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
     }
 }
