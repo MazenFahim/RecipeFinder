@@ -121,6 +121,25 @@ body {
 #sign-in-link:hover {
     text-decoration: underline;
 }
+#sign-up-admin-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: transparent;
+    color: #f39c12;
+    border: 2px solid #f39c12;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+#sign-up-admin-btn:hover {
+    background-color: #f39c12;
+    color: #000;
+}
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
