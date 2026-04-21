@@ -584,3 +584,22 @@ body {
   background: rgba(255, 80, 80, 0.3);
   border-color: rgba(255, 100, 100, 0.8);
 }
+footer {
+    background-color: #f8f9fa; /* لون خلفية هادئ */
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px; /* مسافة عن المحتوى فوقه */
+    border-top: 1px solid #ddd;
+}
+
+.logout-link {
+    color: #ff4757; /* لون أحمر خفيف للتمييز */
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
