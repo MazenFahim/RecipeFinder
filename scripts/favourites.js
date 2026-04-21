@@ -1,3 +1,4 @@
+
 function getFavs() {
   return JSON.parse(localStorage.getItem("recipeFavorites") || "[]");
 }
