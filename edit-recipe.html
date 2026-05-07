@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Recipe</title>
-
-    <!-- 🔗 ربط الـ CSS -->
     <link rel="stylesheet" href="styles/edit-recipe.css">
 </head>
 
@@ -61,48 +59,100 @@
     </div>
 </section>
 
+<script>
+    // Variable to store current recipe ID that will be edited 
+    let currentId = ""; 
+
+    
+    async function searchRecipe() {
+        const id = document.getElementById("searchID").value;
+
+        if (!id) {
+            alert("Please enter a Recipe ID!");
+            return;
+        }
+
+        // Send GET request to server to fetch recipe details by ID 
+        try {
+            const response = await fetch(`http://localhost:3000/recipes/${id}`);
+
+            // If recipe is found, populate the form fields with existing data for editing
+            if (response.ok) {
+                const recipe = await response.json();
+
+                currentId = id;
+                document.getElementById("editRecipeName").value = recipe.recipeName;
+                document.getElementById("editCourse").value = recipe.course;
+                document.getElementById("editIngredients").value = recipe.ingredients;
+            } else {
+                alert("Recipe not found on server!");
+            }
+        } catch (error) {
+            console.error("Search error:", error);
+            alert("Connection error. Could not search for recipe.");
+        }
+    }
+
+    // Load recipe details if ID is provided in URL query parameters (e.g. edit-recipe.html?id=REC-1)
+    window.onload = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const idFromUrl = urlParams.get('id');
+        if (idFromUrl) {
+            document.getElementById("searchID").value = idFromUrl;
+            searchRecipe(); 
+        }
+    };    
+
+    document.getElementById("editForm").onsubmit = async function (e) {
+        e.preventDefault();
+
+        if (!currentId) {
+            alert("Please search for a recipe first!");
+            return;
+        }
+
+        // get toeken from local storage to allow admin to edit recipe
+        const token = localStorage.getItem('token');
+        
+        
+        const updatedData = {
+            recipeName: document.getElementById("editRecipeName").value,
+            course: document.getElementById("editCourse").value,
+            ingredients: document.getElementById("editIngredients").value
+        };
+
+        if (!updatedData.recipeName || !updatedData.course) {
+            alert("Please fill all fields!");
+            return;
+        }
+ 
+        // Send PUT request to server to update recipe details by ID
+        try {
+            const response = await fetch(`http://localhost:3000/recipes/${currentId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(updatedData)
+            });
+
+            if (response.ok) {
+                alert("Recipe updated successfully in database ✅");
+                window.location.href = 'view-recipe.html';
+            } else {
+                const errorData = await response.json();
+                alert("Failed to update: " + (errorData.message || "Unauthorized"));
+            }
+        } catch (error) {
+            console.error("Update error:", error);
+            alert("An error occurred while saving changes.");
+        }
+    };
+</script>
+
 <script src="data.js"></script>
 <script src="app.js"></script>
-
-<script>
-let currentId = "";
-
-function searchRecipe() {
-    const id = document.getElementById("searchID").value;
-    const recipe = getRecipes().find(r => r.recipeID === id);
-
-    if (!recipe) {
-        alert("Recipe not found!");
-        return;
-    }
-
-    currentId = id;
-
-    document.getElementById("editRecipeName").value = recipe.recipeName;
-    document.getElementById("editCourse").value = recipe.course;
-    document.getElementById("editIngredients").value = recipe.ingredients;
-}
-
-document.getElementById("editForm").onsubmit = function(e) {
-    e.preventDefault();
-
-    const updated = {
-        recipeID: currentId,
-        recipeName: document.getElementById("editRecipeName").value,
-        course: document.getElementById("editCourse").value,
-        ingredients: document.getElementById("editIngredients").value
-    };
-
-    if (!updated.recipeName || !updated.course) {
-        alert("Please fill all fields!");
-        return;
-    }
-
-    updateRecipe(updated);
-
-    alert("Recipe updated successfully ✅");
-};
-</script>
 
 </body>
 </html>

@@ -12,7 +12,7 @@
     <a href="admin_dashboard.html">&lt;Back to Dashboard</a>
     <br><br>
 
-    <form action="#" method="POST">
+    <form id="addRecipeForm" action="#" method="POST">
         <table>
             <tr>
                 <td><label for="recipeID">Recipe ID: </label></td>
@@ -27,9 +27,9 @@
                 <td>
                     <select name="Course" id="Course">
                         <option value="" disabled selected>Select Course</option>
-                        <option value="1">Appetizers</option>
-                        <option value="2">Main Course</option>
-                        <option value="3">Dessert</option>
+                        <option value="Appetizers">Appetizers</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Dessert">Dessert</option>
                     </select>
                 </td>
             </tr>
@@ -47,5 +47,52 @@
         <input type="reset" value="Reset Form">
     </form>
 </section>
+
+<script>
+    
+    // Event listener for form submission to add new recipe
+    document.getElementById('addRecipeForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+       
+        // Create new recipe object from form values to send to server
+        const newRecipe = {
+            recipeID: document.getElementById('recipeID').value,
+            recipeName: document.getElementById('recipeName').value,
+            course: document.getElementById('Course').value,
+            ingredientID: document.getElementById('ingredientID').value,
+            ingredients: document.getElementById('Ingredients').value
+        };
+
+        
+        // get token from local storage to include in request header for authentication
+        const token = localStorage.getItem('token');
+
+        // Post request to add new recipe
+        try {
+            const response = await fetch('http://localhost:3000/recipes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`    // Include token in Authorization header
+                },
+                body: JSON.stringify(newRecipe)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Recipe added successfully!');
+                window.location.href = 'view-recipe.html';  
+            } else {
+                alert(data.message || 'Failed to add recipe.');
+            }
+
+        } catch (error) {
+            console.error("Add recipe error:", error);
+            alert('Connection error. Please try again.');
+        }
+    });
+</script>
 </body>
 </html>

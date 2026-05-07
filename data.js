@@ -1,4 +1,4 @@
-// const recipes = [
+ // const recipes = [       <== Statiic data          
 //   {
 //     recipeID: "REC-1",
 //     recipeName: "Spaghetti",
@@ -14,18 +14,19 @@
 // ];
 
 
-// function to load and display recipes from the backend
+// fetching recipes from the backend server
 
 // query = '' which means if there is no search query, it will load all recipes by default 
 async function loadAndDisplayRecipes(query = '') {
   const container = document.getElementById("recipesContainer");  
   try {
-    let url = 'http://localhost:3000/recipes';    // the backend server that fetch the recipes from it
+    let url = 'http://localhost:3000/recipes';    // the backend server that fetch the recipes from it 
 
     // if user use search button so we sill add this query to the url to filter the recipes 
     if (query) {
       url += `?search=${encodeURIComponent(query)}`;
-    }  
+    } 
+    
 
     // request and rsponse from the server 
     const response = await fetch(url);
@@ -40,6 +41,7 @@ async function loadAndDisplayRecipes(query = '') {
     recipes.forEach(recipe => {
       html += `
         <div class="recipe-card">
+          <img src="${recipe.imageURL || 'placeholder.jpg'}" alt="${recipe.recipeName}" style="width:100%; border-radius:8px;">
           <h3>${recipe.recipeName}</h3>
           <p><strong>Course:</strong> ${recipe.course}</p>
           <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
@@ -57,7 +59,7 @@ async function loadAndDisplayRecipes(query = '') {
     html += '</div>';
     container.innerHTML = html;
 
-        
+    // after loading the recipes we will check if the user is admin or not to show the admin controls (edit and delete buttons)     
     checkAdminStatus();
 
     } catch (error) {
