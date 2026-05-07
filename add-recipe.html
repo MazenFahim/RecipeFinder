@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Recipe</title>
+</head>
+<body>
+<header>
+    <h1>Add New Recipe</h1>
+</header>
+
+<section>
+    <a href="admin_dashboard.html">&lt;Back to Dashboard</a>
+    <br><br>
+
+    <form id="addRecipeForm" action="#" method="POST">
+        <table>
+            <tr>
+                <td><label for="recipeID">Recipe ID: </label></td>
+                <td><input type="text" id="recipeID" name="recipeID" placeholder="Enter recipe ID (REC-001)"></td>
+            </tr>
+            <tr>
+                <td><label for="recipeName">Recipe Name:</label></td>
+                <td><input type="text" id="recipeName" name="recipeName" placeholder="Enter the recipe name"></td>
+            </tr>
+            <tr>
+                <td><label for="Course">Course:</label></td>
+                <td>
+                    <select name="Course" id="Course">
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="Appetizers">Appetizers</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Dessert">Dessert</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="ingredientID">Ingredient ID:</label></td>
+                <td><input type="text" id="ingredientID" name="ingredientID" placeholder="Enter the Ingredient id"></td>
+            </tr>
+            <tr>
+                <td><label for="Ingredients">Ingredients:</label></td>
+                <td><textarea name="Ingredients" id="Ingredients" cols="20" rows="10" placeholder="Enter Ingredients of this recipe"></textarea></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Add Recipe">
+        <input type="reset" value="Reset Form">
+    </form>
+</section>
+
+<script>
+    
+    // Event listener for form submission to add new recipe
+    document.getElementById('addRecipeForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+       
+        // Create new recipe object from form values to send to server
+        const newRecipe = {
+            recipeID: document.getElementById('recipeID').value,
+            recipeName: document.getElementById('recipeName').value,
+            course: document.getElementById('Course').value,
+            ingredientID: document.getElementById('ingredientID').value,
+            ingredients: document.getElementById('Ingredients').value
+        };
+
+        
+        // get token from local storage to include in request header for authentication
+        const token = localStorage.getItem('token');
+
+        // Post request to add new recipe
+        try {
+            const response = await fetch('http://localhost:3000/recipes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`    // Include token in Authorization header
+                },
+                body: JSON.stringify(newRecipe)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Recipe added successfully!');
+                window.location.href = 'view-recipe.html';  
+            } else {
+                alert(data.message || 'Failed to add recipe.');
+            }
+
+        } catch (error) {
+            console.error("Add recipe error:", error);
+            alert('Connection error. Please try again.');
+        }
+    });
+</script>
+</body>
+</html>
