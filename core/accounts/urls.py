@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import *
+from .views import SignupAPI, LoginAPI
+
 urlpatterns = [
-    path('',home),
+    # These match the blueprint endpoints
+    path('api/signup/', SignupAPI.as_view(), name='api-signup'),
+    path('api/login/', LoginAPI.as_view(), name='api-login'),
 ]

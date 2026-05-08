@@ -37,13 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #local apps
     'accounts.apps.AccountsConfig',
     'favorites.apps.FavoritesConfig',
     'recipes.apps.RecipesConfig',
+    #api
+    'rest_framework',
+    'corsheaders',
 
 ]
+#override default user model
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
+'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +60,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# ALLOW ALL ORIGINS FOR DEVELOPMENT
+CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
