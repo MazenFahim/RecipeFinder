@@ -1,0 +1,28 @@
+{% load static %} {#It laods all the files in static folder like css and js files#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RecipeFinder{% endblock title %}</title> {#gives a default title to the page but can be changed#}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+<body>
+    <nav class="navbar">
+      <div class="nav-logo">🍽️ RecipeFinder</div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>               
+        <li><a href="{% url 'favorites_list' %}">Favorites</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="Search recipes...">
+        <button>🔍</button>
+      </div>
+    </nav>
+
+    {% block content %}                                 {#block for different pages that will include this base#}
+    {% endblock content %}
+</body>
+</html>

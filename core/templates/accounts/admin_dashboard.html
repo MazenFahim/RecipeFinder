@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/admin.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <h2><i>Welcome, Admin!</i></h2>
+    <section>
+        <h3>Manage Recipes</h3>
+        <ul class="dashboard-menu">
+            <li>
+                <p>Add New Recipe:</p>
+                <a href="{% url 'add_recipe' %}"><button>Go to Add Recipe</button></a>
+            </li>
+            <li>
+                <p>View All Recipes:</p>
+                <a href="{% url 'view_recipes' %}"><button>View</button></a>
+            </li>
+            <li>
+                <p>Edit Recipe:</p>
+                <a href="{% url 'edit_recipe' %}"><button>Go to Edit Recipe</button></a>
+            </li>
+            <li>
+                <p>Delete Recipe:</p>
+                <a href="{% url 'view_recipes' %}"><button id="deleteRecipeBtn" class="delete-btn">Delete a Recipe</button></a>
+            </li>
+        </ul>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'scripts/data.js' %}"></script>
+    <script src="{% static 'scripts/admin.js' %}"></script>
+{% endblock %}

@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
-from .models import Recipe, Ingredient
+from django.contrib import messages
+from django.contrib.admin.views.decorators import staff_member_required
 from rest_framework import generics, mixins
 from rest_framework.filters import SearchFilter
+from .models import Recipe, Ingredient
 from .permissions import IsAdminOrReadOnly
 from .serializer import RecipeSerializer
 
@@ -39,31 +41,67 @@ def home(request):
 def admin_dashboard(request): 
     return render(request, 'accounts/admin_dashboard.html')
 
-def add_recipe_view(request):
-    if request.method == 'POST':
-        r_id = request.POST.get('recipeID')
-        r_name = request.POST.get('recipeName')
-        r_course = request.POST.get('Course')
-        r_ingredients_text = request.POST.get('Ingredients')
-
-        try:
-            new_recipe = Recipe.objects.create(
-                recipe_custom_id=r_id,
-                name=r_name,
-                course_name=r_course,
-                description="Added via Admin Dashboard" 
-            )
-            if r_ingredients_text:
-                ing, created = Ingredient.objects.get_or_create(name=r_ingredients_text)
-                new_recipe.ingredients.add(ing)
-
-            return JsonResponse({'success': True, 'message': 'Recipe added successfully! ✅'})
-        
-        except Exception as e:
-            return JsonResponse({'success': False, 'message': f'Error: {str(e)}'})
-
-    return render(request, 'add_recipe.html')
-
 def view_recipes(request):
     recipes = Recipe.objects.all()
     return render(request, 'accounts/admin_dashboard.html', {'recipes': recipes})
+
+def recipe_detail(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
+
+@staff_member_required
+def add_recipe_view(request):
+    if request.method == 'POST':
+        try:
+            recipe = Recipe.objects.create(
+                recipe_custom_id=request.POST.get('recipeID'),
+                name=request.POST.get('recipeName'),
+                course_name=request.POST.get('Course'),
+                description="Added via Admin Dashboard",
+                country=request.POST.get('country', ''),
+                image=request.FILES.get('image')
+            )
+            ingredients_text = request.POST.get('Ingredients')
+            if ingredients_text:
+                names = [n.strip() for n in ingredients_text.split(',') if n.strip()]
+                for name in names:
+                    ing_obj, _ = Ingredient.objects.get_or_create(name=name)
+                    recipe.ingredients.add(ing_obj)
+            return JsonResponse({'success': True, 'message': 'Recipe added successfully! ✅'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'message': str(e)})
+    return render(request, 'add_recipe.html')
+
+@staff_member_required
+def edit_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    if request.method == 'POST':
+        recipe.name = request.POST.get('recipeName')
+        recipe.course_name = request.POST.get('course')
+        recipe.country = request.POST.get('country')
+        if 'image' in request.FILES:
+            recipe.image = request.FILES['image']
+        recipe.save()
+        
+        ingredients_text = request.POST.get('ingredients')
+        if ingredients_text:
+            recipe.ingredients.clear()
+            names = [n.strip() for n in ingredients_text.split(',') if n.strip()]
+            for name in names:
+                ing_obj, _ = Ingredient.objects.get_or_create(name=name)
+                recipe.ingredients.add(ing_obj)
+        
+        messages.success(request, "Recipe updated successfully!")
+        return redirect('view_recipes')
+    return render(request, 'admin/edit_recipe.html', {'recipe': recipe})
+
+def get_recipe_data(request):
+    recipe_id = request.GET.get('recipe_id')
+    recipe = get_object_or_404(Recipe, recipe_custom_id=recipe_id)
+    ingredients = ", ".join([ing.name for ing in recipe.ingredients.all()])
+    return JsonResponse({
+        'name': recipe.name,
+        'course_name': recipe.course_name,
+        'country': recipe.country,
+        'ingredients': ingredients
+    })

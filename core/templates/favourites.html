@@ -1,41 +1,54 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Favourites</title>
-  <link rel="stylesheet" href="../static/styles/style.css">
-  <link rel="stylesheet" href="../static/styles/favourites.css">
-</head>
-<body class="favourites-page">
-  <nav class="navbar">
-      <div class="nav-logo">
-        🍽️ RecipeFinder
-      </div>
+{% extends "base.html" %}
+{% load static %}
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="favourites.html">Favourites</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-      </ul>
+{% block title %}Favourites List{% endblock %}
 
-      <div class="nav-search">
-        <input type="text" placeholder="Search recipes...">
-        <button>🔍</button>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/favourites.css' %}">
+{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="page-header-inner">
+    <p class="page-kicker">Saved Collection</p>
+    <h1>Favourite Recipes ❤️</h1>
+    <p id="fav-subtitle">Your collection of favourite recipes</p>
+  </div>
+</header>
+
+<div class="parentEg" id="favGrid">
+  {% for fav in favorites %}
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <img src="{{ fav.recipe.image.url }}" alt="{{ fav.recipe.name }}">
+        <div class="overlay">
+          <h1>{{ fav.recipe.name }}</h1>
+          <div class="overlay-meta">
+            <p class="desc">{{ fav.recipe.description }}</p>
+            <p class="country-tag">{{ fav.recipe.country }}</p>
+          </div>
+        </div>
+        <button class="fav-btn active" onclick="toggleFav('{{ fav.recipe.id }}')">❤️</button>
       </div>
-    </nav>
-  <header class="page-header">
-    <div class="page-header-inner">
-      <p class="page-kicker">Saved Collection</p>
-      <h1>وصفاتي المفضلة ❤️</h1>
-      <p id="fav-subtitle">الوصفات التي حفظتها لترجع إليها</p>
+      <div class="recipe-body">
+        <div class="recipe-section">
+          <h3>😋 Ingredients</h3>
+          <ul>
+            {% for ingredient in fav.recipe.ingredients.all %}
+              <li>{{ ingredient.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="recipe-footer">
+          <a href="{% url 'recipe_detail' fav.recipe.id %}" class="view-btn">View Details</a>
+        </div>
+      </div>
     </div>
-  </header>
-
-  <div class="parentEg" id="favGrid"></div>
-
-  <script src="../static/scripts/data.js"></script>
-  <script src="../static/scripts/favourites.js"></script>
-</body>
-</html>
+  {% empty %}
+    <div class="empty-fav">
+      <p>💔 No favourite recipes found</p>
+      <a href="{% url 'home' %}" class="browse-btn">Browse Recipes</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}Edit Recipe{% endblock %}
 
 {% block extra_css %}
@@ -13,6 +14,7 @@
     </header>
     <section>
         <a href="{% url 'admin_dashboard' %}" class="back-link">&#8592; Back to Dashboard</a>
+        
         <div class="search-group">
             <div class="search-box">
                 <label for="searchID">Enter Recipe ID to Edit:</label>
@@ -21,24 +23,40 @@
             <input type="button" id="searchBtn" value="Search" class="btn-search">
         </div>
         <hr>
-        <form id="editRecipeForm" method="POST">
-            {% csrf_token %} <div class="form-group">   # this puts a secrete code for security 
+
+        <form id="editRecipeForm" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
                 <label for="editRecipeName">Update Recipe Name:</label>
-                <input type="text" id="editRecipeName" name="recipeName">
+                <input type="text" id="editRecipeName" name="name">
             </div>
+
             <div class="form-group">
                 <label for="editCourse">Update Course:</label>
-                <select id="editCourse" name="course">
+                <select id="editCourse" name="course_name">
                     <option value="" disabled selected>Select Course</option>
-                    <option value="Appetizers">Appetizers</option>
-                    <option value="Main Course">Main Course</option>
-                    <option value="Dessert">Dessert</option>
+                    <option value="1">Appetizers</option>
+                    <option value="2">Main Course</option>
+                    <option value="3">Dessert</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="editIngredients">Update Ingredients:</label>
+                <label for="editCountry">Update Country:</label>
+                <input type="text" id="editCountry" name="country">
+            </div>
+
+            <div class="form-group">
+                <label for="editIngredients">Update Ingredients (comma separated):</label>
                 <textarea id="editIngredients" name="ingredients" rows="5"></textarea>
             </div>
+
+            <div class="form-group">
+                <label for="editImage">Update Recipe Image:</label>
+                <input type="file" id="editImage" name="image" accept="image/*">
+            </div>
+
             <input type="submit" value="Save Changes" class="btn-submit">
         </form>
     </section>
@@ -46,6 +64,5 @@
 {% endblock %}
 
 {% block extra_js %}
-    <script src="{% static 'scripts/data.js' %}"></script>
     <script src="{% static 'scripts/admin.js' %}"></script>
 {% endblock %}
