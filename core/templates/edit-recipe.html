@@ -1,82 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/Admin_Styles/edit_recipe.css">
-    <title>Edit Recipe</title>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Edit Recipe{% endblock %}
 
-<body>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/edit_recipe.css' %}">
+{% endblock %}
 
-<!-- ===== NAVBAR ===== -->
-<!-- <nav class="navbar">
-    <a href="admin_dashboard.html" class="nav-logo">Recipe System</a>
-
-    <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Logout</a></li>
-    </ul>
-</nav> -->
-
-<nav class="navbar">
-    <div class="nav-logo">
-        Admin Panel
-    </div>
-    <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="view-recipe.html">View Recipes</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Log Out</a></li>
-    </ul>
-</nav>
-
+{% block content %}
 <div class="admin-container">
     <header>
         <h1>Edit Existing Recipe</h1>
     </header>
     <section>
-        <a href="admin_dashboard.html" class="back-link">&#8592; Back to Dashboard</a>
-
+        <a href="{% url 'admin_dashboard' %}" class="back-link">&#8592; Back to Dashboard</a>
         <div class="search-group">
             <div class="search-box">
                 <label for="searchID">Enter Recipe ID to Edit:</label>
                 <input type="text" id="searchID" placeholder="e.g. REC-001">
             </div>
-            <input type="button" id="searchBtn" value="Search">
+            <input type="button" id="searchBtn" value="Search" class="btn-search">
         </div>
-
         <hr>
-
-        <form id="editRecipeForm">
-            <div class="form-group">
+        <form id="editRecipeForm" method="POST">
+            {% csrf_token %} <div class="form-group">   # this puts a secrete code for security 
                 <label for="editRecipeName">Update Recipe Name:</label>
-                <input type="text" id="editRecipeName">
+                <input type="text" id="editRecipeName" name="recipeName">
             </div>
-
             <div class="form-group">
                 <label for="editCourse">Update Course:</label>
-                <select id="editCourse">
+                <select id="editCourse" name="course">
                     <option value="" disabled selected>Select Course</option>
                     <option value="Appetizers">Appetizers</option>
                     <option value="Main Course">Main Course</option>
                     <option value="Dessert">Dessert</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="editIngredients">Update Ingredients:</label>
-                <textarea id="editIngredients" rows="5"></textarea>
+                <textarea id="editIngredients" name="ingredients" rows="5"></textarea>
             </div>
-
-            <input type="submit" value="Save Changes">
+            <input type="submit" value="Save Changes" class="btn-submit">
         </form>
     </section>
 </div>
-<script src="../static/scripts/data.js"></script>
-<script src="../static/scripts/admin.js"></script>
-</body>
-</html>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'scripts/data.js' %}"></script>
+    <script src="{% static 'scripts/admin.js' %}"></script>
+{% endblock %}

@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Recipe</title>
-    <link rel="stylesheet" href="../static/Admin_Styles/admin.css">
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-<nav class="navbar">
-    <div class="nav-logo">
-        Admin Panel
-    </div>
-    <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="view-recipe.html">View Recipes</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Log Out</a></li>
-    </ul>
-</nav>
+{% block title %}Add New Recipe{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/admin.css' %}">
+{% endblock %}
 
-<div class ="admin-container">
+{% block content %}
+<div class="admin-container">
     <h1>Add New Recipe</h1>
     <h2><i>Fill in the details below to add a new recipe to the collection.</i></h2>
+    
     <section>
-       <a href="admin_dashboard.html"> <h3 class="back">&#8592; Back to Dashboard</h3></a>
+       <a href="{% url 'admin_dashboard' %}"> <h3 class="back">&#8592; Back to Dashboard</h3></a>
        <br><br>
 
-      <form id="addRecipeForm" action="#" method="POST">
+    <form id="addRecipeForm" action="{% url 'add_recipe' %}" method="POST">
+        {% csrf_token %}
         <table>
             <tr>
                 <td><label for="recipeID">Recipe ID: </label></td>
@@ -37,7 +25,6 @@
                     <input type="text" id="recipeID" name="recipeID" placeholder="Enter recipe ID (REC-001)">
                     <span class="error-message" id="recipeIDError"></span>
                 </td>
-            
             </tr>
             <tr>
                 <td><label for="recipeName">Recipe Name:</label></td>
@@ -51,11 +38,11 @@
                 <td>
                     <select name="Course" id="Course">
                         <option value="">Select Course</option>
-                        <option value="1">Appetizers</option>
-                        <option value="2">Main Course</option>
-                        <option value="3">Dessert</option>
+                        <option value="Appetizers">Appetizers</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Dessert">Dessert</option>
                     </select>
-                    <span class="error-message" id="courseError"></span>
+                <span class="error-message" id="courseError"></span>
                 </td>
             </tr>
             <tr>
@@ -65,26 +52,27 @@
                     <span class="error-message" id="ingredientIDError"></span>
                 </td>
             </tr>
-            </tr>
             <tr>
                 <td><label for="Ingredients">Ingredients:</label></td>
                 <td>
                     <textarea name="Ingredients" id="Ingredients" cols="8" rows="4"
                         placeholder="Enter Ingredients of this recipe"></textarea>
                     <span class="error-message" id="ingredientsError"></span>
-                    </td>
+                </td>
             </tr>
         </table>
         <br>
-            <span id="form-success" class="success-message"></span> 
-            <span id="form-error" class="error-message"></span> 
+        <span id="form-success" class="success-message"></span> 
+        <span id="form-error" class="error-message"></span> 
         <br>
         <input type="submit" id="submitBtn" value="Add Recipe" class="btn-submit">
         <input type="reset" id="resetBtn" value="Reset Form" class="btn-reset">
       </form>
     </section>
 </div>
-<script src="../static/scripts/data.js"></script>
-<script src="../static/scripts/admin.js"></script>
-</body>
-</html>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'scripts/data.js' %}"></script>
+    <script src="{% static 'scripts/admin.js' %}"></script>
+{% endblock %}

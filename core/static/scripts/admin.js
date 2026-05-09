@@ -58,7 +58,6 @@ if (searchBtn) {
         if (!idInput) return;
 
         const idToSearch = idInput.value.trim().toUpperCase();
-        // FIX: Changed from getRecipes() to getAllRecipes()--
         const recipes = getAllRecipes();
         const recipe = recipes.find(r => r.recipeID.toUpperCase() === idToSearch);
 
@@ -114,55 +113,41 @@ if (editForm) {
 const addForm = document.getElementById('addRecipeForm');
 if (addForm) {
     addForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent page refresh
+        e.preventDefault(); 
+
+        const formData = new FormData(addForm); 
 
         const recipeID = document.getElementById('recipeID').value.trim();
-        const recipeName = document.getElementById('recipeName').value.trim();
-        const courseSelect = document.getElementById('Course');
-        const courseText = courseSelect.options[courseSelect.selectedIndex].text;
-        const ingredientID = document.getElementById('ingredientID').value.trim();
-        const ingredients = document.getElementById('Ingredients').value.trim();
-
         const errorSpan = document.getElementById('form-error');
         const successSpan = document.getElementById('form-success');
 
-        // Validation
-        if (!recipeID || !recipeName || !ingredients || courseSelect.value === "") {
-            errorSpan.textContent = "Please fill in all required fields (ID, Name, Course, Ingredients).";
-            successSpan.textContent = "";
+        if (!recipeID || !document.getElementById('recipeName').value.trim()) {
+            errorSpan.textContent = "Please fill in the required fields.";
             return;
         }
 
-        // Check for duplicate ID
-        const existingRecipes = getAllRecipes();
-        if (existingRecipes.some(r => r.recipeID.toUpperCase() === recipeID.toUpperCase())) {
-            errorSpan.textContent = `A recipe with ID '${recipeID}' already exists!`;
-            successSpan.textContent = "";
-            return;
-        }
-
-        // Create Object
-        const newRecipe = {
-            recipeID: recipeID.toUpperCase(),
-            recipeName: recipeName,
-            course: courseText, // Save the text (e.g. "Main Course") instead of "1" or "2"
-            ingredientID: ingredientID,
-            ingredients: ingredients
-        };
-
-        // Save to localStorage using data.js function
-        saveRecipe(newRecipe);
-
-        // Feedback and Reset
-        errorSpan.textContent = "";
-        successSpan.textContent = "Recipe added successfully!";
-        addForm.reset();
-
-        // Remove success message after 3 seconds
-        setTimeout(() => {
-            successSpan.textContent = "";
-        }, 3000);
+        fetch('/add-recipe/', { 
+            method: 'POST',
+            body: formData, 
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                errorSpan.textContent = "";
+                successSpan.textContent = "Recipe added successfully to Database! ✅";
+                addForm.reset();
+                setTimeout(() => { successSpan.textContent = ""; }, 3000);
+            } else {
+                errorSpan.textContent = data.message;
+                successSpan.textContent = "";
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            errorSpan.textContent = "Failed to connect to the server.";
+        });
     });
 }
-
-document.addEventListener('DOMContentLoaded', displayRecipes);

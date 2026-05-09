@@ -9,11 +9,12 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     COURSE_CHOICES = [
-        ('appetizers', 'Appetizers'),
-        ('main course', 'Main Course'),
-        ('dessert', 'Dessert'),
+        ('1', 'Appetizers'),
+        ('2', 'Main Course'),
+        ('3', 'Dessert'),
     ]
 
+    recipe_custom_id = models.CharField(max_length=20, unique=True, null=True, blank=True)
     name = models.CharField(max_length=200)
     course_name = models.CharField(max_length=20, choices=COURSE_CHOICES)
     description = models.TextField() 

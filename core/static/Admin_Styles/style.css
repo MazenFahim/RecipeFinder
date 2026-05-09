@@ -78,3 +78,29 @@
 .nav-search button:hover {
   background: #c0392b;
 }
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.wrapper {
+    display: flex;
+    width: calc(250px * 10);
+    animation: scroll 25s linear infinite;
+}
+
+.item {
+    width: 250px;
+    height: 180px;
+    margin: 0 10px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * -5)); } 
+}
