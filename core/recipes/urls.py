@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import *
+from . import views
+
 urlpatterns = [
-    path('ListCreate/',ListCreate.as_view()),
-    path('getUpdDel/<int:pk>/',GetUpdateDelete.as_view()),
+    path('home/', views.recipe_home_view, name='home'),
+   
+    path('favorite-list/', views.recipe_home_view, name='favorite_list'), 
+    
+    path('api/recipes/', views.ListCreate.as_view(), name='recipe-list'),
 ]

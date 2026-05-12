@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="../static/styles/signup.css">
-    <link rel="stylesheet" href="../static/styles/style.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
 </head>
 
 <body>
@@ -14,8 +15,6 @@
         <div class="nav-logo">
             🍽️ RecipeFinder
         </div>
-
-       
 
         <div class="nav-search">
             <input type="text" placeholder="Search recipes...">
@@ -28,20 +27,21 @@
             <span id="sign-up-text">Sign up</span>
             <span class="subtitle">Sign up to continue</span>
 
-            <form>
+            <form method="POST" action="{% url 'api-signup' %}">
+                {% csrf_token %}
                 <div class="input-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="Enter your name">
+                    <input type="text" id="name" name="username" required placeholder="Enter your name">
                 </div>
 
                 <div class="input-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
                 </div>
 
                 <div class="input-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" placeholder="Enter password">
+                    <input type="password" id="password" name="password" required placeholder="Enter password">
                 </div>
 
                 <div class="remember-container">
@@ -49,16 +49,16 @@
                     <label for="remember-me">Remember me</label>
                 </div>
 
-                <button type="button" id="sign-up-btn">Sign up</button>
+                <button type="submit" id="sign-up-btn">Sign up</button>
                 <button type="button" id="sign-up-admin-btn">Sign up as Admin</button>
             </form>
 
             <div class="already-have">
                 <span id="have-acc">Already have an account?</span>
-                <a href="login.html" id="sign-in-link">Sign in</a>
+                <a href="{% url 'login' %}" id="sign-in-link">Sign in</a>
             </div>
         </div>
     </main>
 </body>
-<script src="../static/scripts/signup.js"></script>
+<script src="{% static 'scripts/signup.js' %}"></script>
 </html>

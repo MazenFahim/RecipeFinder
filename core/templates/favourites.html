@@ -1,11 +1,13 @@
+{% csrf_token %}
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Favourites</title>
-  <link rel="stylesheet" href="../static/styles/style.css">
-  <link rel="stylesheet" href="../static/styles/favourites.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/favourites.css' %}">
 </head>
 <body class="favourites-page">
   <nav class="navbar">
@@ -14,10 +16,13 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="favourites.html">Favourites</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        {% if not user.is_authenticated %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'signup-page' %}">Sign Up</a></li>
+      {% else %}
+        <li><a href="{% url 'logout' %}" class="logout-link">Logout</a></li>
+      {% endif %}
       </ul>
 
       <div class="nav-search">
@@ -25,17 +30,41 @@
         <button>🔍</button>
       </div>
     </nav>
+
   <header class="page-header">
     <div class="page-header-inner">
       <p class="page-kicker">Saved Collection</p>
-      <h1>وصفاتي المفضلة ❤️</h1>
-      <p id="fav-subtitle">الوصفات التي حفظتها لترجع إليها</p>
+      <h1>My Favorite Recipes ❤️</h1>
+      <p id="fav-subtitle">Recipes you saved to view later</p>
     </div>
   </header>
 
-  <div class="parentEg" id="favGrid"></div>
+  <div class="parentEg" id="favGrid">
+    {% for fav in favorites %}
+      <div class="recipe-card">
+        {% if fav.recipe.image %}
+          <img src="{{ fav.recipe.image.url }}" alt="{{ fav.recipe.name }}" style="width:100%; border-radius:10px;">
+        {% endif %}
+        <h3>{{ fav.recipe.name }}</h3>
+        <p><strong>Course:</strong> {{ fav.recipe.get_course_name_display }}</p>
+        <p>{{ fav.recipe.description }}</p>
+        
+      <button 
+        class="fav-btn active" 
+        data-id="{{ fav.recipe.id }}" 
+        onclick="toggleFav(this)" 
+        style="background:none; border:none; font-size:24px; cursor:pointer;">
+        ❤️
+      </button>
+      </div>
+    {% empty %}
+      <div style="text-align: center; width: 100%; padding: 50px;">
+        <p>You haven't added any favorites yet. 💔</p>
+        <a href="{% url 'home' %}" style="color: #ff4d4d; text-decoration: underline;">Browse Recipes</a>
+      </div>
+    {% endfor %}
+  </div>
 
-  <script src="../static/scripts/data.js"></script>
-  <script src="../static/scripts/favourites.js"></script>
+  <script src="{% static 'scripts/favourites.js' %}"></script>
 </body>
 </html>
