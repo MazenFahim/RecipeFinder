@@ -5,7 +5,7 @@ from django.db.models import Q
 from rest_framework import generics
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
-
+from .permissions import IsAdminOrReadOnly
 from .models import Recipe
 from .serializer import RecipeSerializer
 from favorites.models import Favorite
@@ -38,7 +38,7 @@ def recipe_home_view(request):
 class ListCreate(generics.ListCreateAPIView):
     queryset = Recipe.objects.prefetch_related('ingredients').all()
     serializer_class = RecipeSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminOrReadOnly & IsAuthenticated]
     filter_backends = [SearchFilter]
 
     search_fields = [
@@ -52,4 +52,4 @@ class ListCreate(generics.ListCreateAPIView):
 class GetUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.prefetch_related('ingredients').all()
     serializer_class = RecipeSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminOrReadOnly & IsAuthenticated]
