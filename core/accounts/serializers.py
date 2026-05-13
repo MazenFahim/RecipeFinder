@@ -13,20 +13,20 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         # Use create_user to ensure the password is properly hashed
         user = CustomUser.objects.create_user(
-            username=validated_data.get('username', validated_data.get('email')),
-            email=validated_data.get('email', ''),
+            username=validated_data['username'],
+            email=validated_data['email'],
             password=validated_data['password'],
-            is_admin=validated_data.get('is_admin', False)
+            is_admin=validated_data['is_admin']
         )
         return user
 
 class LoginSerializer(serializers.Serializer):
-    username = serializers.CharField()
+    email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
         # Authenticate checks the username and password against the database
-        user = authenticate(**data)
+        user = authenticate(username=data.get('email'), password=data.get('password'))
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Incorrect Credentials")

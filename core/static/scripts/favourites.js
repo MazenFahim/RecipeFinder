@@ -1,46 +1,91 @@
-// 1. ضع دالة getCookie خارجاً لتكون عامة
 function getCookie(name) {
     let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
+    if (document.cookie) {
+        document.cookie.split(';').forEach(function (c) {
+            c = c.trim();
+            if (c.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(c.split('=')[1]);
             }
-        }
+        });
     }
     return cookieValue;
 }
 
-function toggleFav(btnElement) {
-    const recipeId = btnElement.getAttribute('data-id');
-    const url = `/favorites/api/favorite/toggle/${recipeId}/`;
-    const csrftoken = getCookie('csrftoken');
+
+// ===== TOGGLE FAVORITE =====
+function toggleFav(btn) {
+
+    var id = btn.dataset.id;
+    var url = "/favorites/api/favorite/toggle/" + id + "/";
 
     fetch(url, {
-        method: 'GET', 
-        headers: { 
-            'X-Requested-With': 'XMLHttpRequest',
-            'X-CSRFToken': csrftoken
+        method: "GET",
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken")
         }
     })
-    .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
+    .then(function (r) {
+        return r.json();
     })
-    .then(data => {
-        if (data.status === 'added') {
-            btnElement.innerText = "❤️";
-        } else if (data.status === 'removed') {
-            if (window.location.pathname.includes('favorites')) {
-                const recipeCard = btnElement.closest('.recipe-card');
-                if (recipeCard) recipeCard.remove();
-            } else {
-                btnElement.innerText = "🤍";
+    .then(function (data) {
+
+        if (data.status === "added") {
+            btn.innerHTML = "❤️";
+        }
+
+        if (data.status === "removed") {
+            btn.innerHTML = "🤍";
+
+            // remove only in favorites page
+            if (document.getElementById("favContainer")) {
+                var card = btn.closest(".recipe-card");
+                if (card) {
+                    card.remove();
+                }
             }
         }
-    })
-    .catch(error => console.error('Error:', error));
+    });
+}
+
+
+// ===== SEARCH FIXED =====
+async function searchRecipes() {
+
+    var q = document.getElementById("searchBox").value;
+
+    var res = await fetch("/recipes/api/recipes/?search=" + q);
+    var data = await res.json();
+
+    var container = document.getElementById("recipesContainer");
+    container.innerHTML = "";
+
+    var results = data.results || data;
+
+    results.forEach(function (r) {
+
+        var ingredients = "";
+
+        if (r.ingredients && r.ingredients.length > 0) {
+
+            ingredients = r.ingredients.map(function (i) {
+
+                return typeof i === "string" ? i : i.name;
+
+            }).join(", ");
+        }
+
+        container.innerHTML += `
+            <div class="recipe-card">
+                <h3>${r.name}</h3>
+                <p>${r.description}</p>
+                <p>${r.prep_time ? r.prep_time : "N/A"} min</p>
+                <p>${ingredients ? ingredients : "No ingredients"}</p>
+
+                <button onclick="toggleFav(this)" data-id="${r.id}">
+                    🤍
+                </button>
+            </div>
+        `;
+    });
 }

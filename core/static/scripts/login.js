@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     loginBtn.addEventListener('click', async (event) => {
         event.preventDefault();
 
-        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        if (!username || !password) {
-            alert("يرجى إدخال اسم المستخدم وكلمة المرور!");
+        if (!email || !password) {
+            alert("يرجى إدخال البريد الإلكتروني وكلمة المرور!");
             return;
         }
 
         const payload = {
-            username: username,
+            email: email,
             password: password
         };
 

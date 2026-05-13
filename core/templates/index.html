@@ -10,13 +10,10 @@
 </head>
 
 <body>
-  <!-- إضافة توكن الحماية هنا ليكون متاحاً لملف الـ JavaScript الخارجي -->
   {% csrf_token %}
 
   <nav class="navbar">
-    <div class="nav-logo">
-      🍽️ RecipeFinder
-    </div>
+    <div class="nav-logo">🍽️ RecipeFinder</div>
 
     <ul class="nav-links">
       <li><a href="{% url 'home' %}">Home</a></li>
@@ -29,10 +26,10 @@
         <li><a href="{% url 'logout' %}">Logout</a></li>
       {% endif %}
     </ul>
-    <div class="nav-search">
-      <input type="text" placeholder="Search recipes...">
-      <button>🔍</button>
-    </div>
+<form class="nav-search" method="GET" action="{% url 'home' %}">
+  <input type="text" name="q" placeholder="Search recipes..." value="{{ request.GET.q }}">
+  <button type="submit">🔍</button>
+</form>
   </nav>
 
   <div class="Hottest-meals">
@@ -66,46 +63,51 @@
     <button class="filter-btn">صعب</button>
   </div>
 
-  <div class="parentEg">
+  <div class="parentEg" id="recipesContainer">
     {% for recipe in recipes %}
       <div class="recipe-card">
         <div class="recipe-image-container" style="position: relative;">
           {% if recipe.image %}
-            <img src="{% static 'images/' %}{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-img" style="width: 100%; border-radius: 15px;">
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="recipe-img" style="width:100%; height:200px; object-fit:cover; border-radius:15px;">
           {% else %}
-            <img src="{% static 'images/default_recipe.png' %}" alt="Default" class="recipe-img">
+            <img src="{% static 'images/default_recipe.png' %}" alt="Default" class="recipe-img" style="width:100%; height:200px; object-fit:cover; border-radius:15px;">
           {% endif %}
           
-          <button class="fav-btn" 
-                  data-id="{{ recipe.id }}"
-                  onclick="toggleFav(this)">
+          <button class="fav-btn" data-id="{{ recipe.id }}" onclick="toggleFav(this)">
               {% if recipe.id in favorites_list %} ❤️ {% else %} 🤍 {% endif %}
           </button>
         </div>
 
-        <div class="recipe-details" style="padding: 10px;">
-          <h3 style="margin: 10px 0;">{{ recipe.name }}</h3>
-          <p style="color: #666; font-size: 14px;">{{ recipe.description|truncatewords:12 }}</p>
-          <div class="recipe-meta" style="margin-top: 10px; font-weight: bold; color: #ff4d4d;">
-            <span>⏱️ {{ recipe.prep_time }} دقيقة</span>
+        <div class="recipe-details" style="padding: 15px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0;">{{ recipe.name }}</h3>
+            <span class="course-badge" style="background: #eee; padding: 2px 8px; border-radius: 5px; font-size: 12px;">{{ recipe.get_course_name_display }}</span>
+          </div>
+
+          <p style="color: #666; font-size: 14px; margin: 10px 0;">{{ recipe.description|truncatewords:12 }}</p>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <span style="font-weight: bold; color: #ff4d4d;">⏱️ {{ recipe.prep_time }} دقيقة</span>
+            <span style="font-size: 12px; color: #999;">#{{ recipe.id }}</span>
           </div>
         </div>
       </div>
     {% empty %}
       <div style="text-align: center; width: 100%; padding: 40px;">
-        <p>لا توجد وصفات حالياً.</p>
+        <p>No recipes available at the moment.</p>
       </div>
     {% endfor %}
   </div>
 
-  <!-- استدعاء ملف الـ JavaScript الخارجي الخاص بكِ هنا -->
   <script src="{% static 'scripts/favourites.js' %}"></script>
 
   <footer>
     <div class="footer-content">
       <p>© 2026 RecipeFinder - كل الحقوق محفوظة</p>
-      <a href="{% url 'logout' %}" class="logout-link">تسجيل خروج</a>
+      {% if user.is_authenticated %}
+      {% endif %}
     </div>
   </footer>
 </body>
+
 </html>

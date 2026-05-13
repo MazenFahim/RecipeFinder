@@ -20,6 +20,9 @@ from django.contrib.auth import views as auth_views
 from accounts.views import MyLogoutView
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.conf import settings
+from django.conf.urls.static import static
+from core import settings
 
 def manual_logout(request):
     logout(request)
@@ -32,4 +35,4 @@ urlpatterns = [
     path('recipes/', include('recipes.urls')),
     path('favorites/', include('favorites.urls')),
     path('logout/', manual_logout, name='logout'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

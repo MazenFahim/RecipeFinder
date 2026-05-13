@@ -30,59 +30,64 @@
        <a href="{% url 'admin-dashboard' %}"> <h3 class="back">&#8592; Back to Dashboard</h3></a>
        <br><br>
 
-      <form id="addRecipeForm" action="#" method="POST">
-        <table>
-            <tr>
-                <td><label for="recipeID">Recipe ID: </label></td>
-                <td>
-                    <input type="text" id="recipeID" name="recipeID" placeholder="Enter recipe ID (REC-001)">
-                    <span class="error-message" id="recipeIDError"></span>
-                </td>
-            
-            </tr>
-            <tr>
-                <td><label for="recipeName">Recipe Name:</label></td>
-                <td>
-                    <input type="text" id="recipeName" name="recipeName" placeholder="Enter the recipe name">
-                    <span class="error-message" id="recipeNameError"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="Course">Course:</label></td>
-                <td>
-                    <select name="Course" id="Course">
-                        <option value="">Select Course</option>
-                        <option value="1">Appetizers</option>
-                        <option value="2">Main Course</option>
-                        <option value="3">Dessert</option>
-                    </select>
-                    <span class="error-message" id="courseError"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="ingredientID">Ingredient ID:</label></td>
-                <td>
-                    <input type="text" id="ingredientID" name="ingredientID" placeholder="Enter the Ingredient id">
-                    <span class="error-message" id="ingredientIDError"></span>
-                </td>
-            </tr>
-            </tr>
-            <tr>
-                <td><label for="Ingredients">Ingredients:</label></td>
-                <td>
-                    <textarea name="Ingredients" id="Ingredients" cols="8" rows="4"
-                        placeholder="Enter Ingredients of this recipe"></textarea>
-                    <span class="error-message" id="ingredientsError"></span>
-                    </td>
-            </tr>
-        </table>
-        <br>
-            <span id="form-success" class="success-message"></span> 
-            <span id="form-error" class="error-message"></span> 
-        <br>
-        <input type="submit" id="submitBtn" value="Add Recipe" class="btn-submit">
-        <input type="reset" id="resetBtn" value="Reset Form" class="btn-reset">
-      </form>
+<form id="addRecipeForm">
+        {% csrf_token %} <table>
+        <tr>
+            <td><label for="recipeName">Recipe Name:</label></td>
+            <td>
+                <input type="text" id="recipeName" name="name" required placeholder="Enter the recipe name">
+                <span class="error-message" id="recipeNameError"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Course">Course:</label></td>
+            <td>
+                <select name="course_name" id="Course" required>
+                    <option value="">Select Course</option>
+                    <option value="appetizers">Appetizers</option>
+                    <option value="main course">Main Course</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+                <span class="error-message" id="courseError"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Ingredients">Description:</label></td>
+            <td>
+                <textarea name="description" id="description" cols="8" rows="4"
+                    placeholder="Enter short description of this recipe"></textarea>
+                <span class="error-message" id="ingredientsError"></span>
+            </td>
+        </tr>
+        <tr>
+    <td><label for="prep_time">Prep Time (minutes):</label></td>
+    <td>
+        <input type="number" id="prep_time" name="prep_time" min="0" placeholder="e.g. 30">
+        <span class="error-message" id="prepTimeError"></span>
+    </td>
+</tr>
+
+<tr>
+    <td><label for="image">Recipe Image:</label></td>
+    <td>
+        <input type="file" id="image" name="image" accept="image/*">
+        <span class="error-message" id="imageError"></span>
+    </td>
+</tr>
+
+<tr>
+    <td><label for="ingredients">Ingredients:</label></td>
+    <td>
+        <input type="text" id="ingredients" name="ingredients" placeholder="e.g. sugar, milk, flour">
+        <small>Comma separated</small>
+        <span class="error-message" id="ingredientsError"></span>
+    </td>
+</tr>
+    </table>
+    <br>
+    <input type="submit" id="submitBtn" value="Add Recipe" class="btn-submit">
+    <input type="reset" id="resetBtn" value="Reset Form" class="btn-reset">
+</form>
     </section>
 </div>
 <script src="{% static 'scripts/data.js' %}"></script>

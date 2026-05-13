@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="{% static 'Admin_Styles/edit_recipe.css' %}">
     <title>Edit Recipe</title>
 </head>
-
 <body>
-
 <nav class="navbar">
-    <div class="nav-logo">
-        Admin Panel
-    </div>
+    <div class="nav-logo">Admin Panel</div>
     <ul class="nav-links">
         <li><a href="{% url 'admin-dashboard' %}">Dashboard</a></li>
         <li><a href="{% url 'admin-add-recipe' %}">Add Recipe</a></li>
@@ -22,50 +18,45 @@
         <li><a href="{% url 'logout' %}">Log Out</a></li>
     </ul>
 </nav>
-
 <div class="admin-container">
-    <header>
-        <h1>Edit Existing Recipe</h1>
-    </header>
+    <header><h1>Edit Existing Recipe</h1></header>
     <section>
         <a href="{% url 'admin-dashboard' %}" class="back-link">&#8592; Back to Dashboard</a>
-
         <div class="search-group">
             <div class="search-box">
                 <label for="searchID">Enter Recipe ID to Edit:</label>
-                <input type="text" id="searchID" placeholder="e.g. REC-001">
+                <input type="text" id="searchID" placeholder="e.g. 1">
             </div>
             <input type="button" id="searchBtn" value="Search">
         </div>
-
         <hr>
-
         <form id="editRecipeForm">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="editRecipeName">Update Recipe Name:</label>
-                <input type="text" id="editRecipeName">
+                <input type="text" id="editRecipeName" required>
             </div>
-
             <div class="form-group">
                 <label for="editCourse">Update Course:</label>
-                <select id="editCourse">
+                <select id="editCourse" required>
                     <option value="" disabled selected>Select Course</option>
-                    <option value="Appetizers">Appetizers</option>
-                    <option value="Main Course">Main Course</option>
-                    <option value="Dessert">Dessert</option>
+                    <option value="appetizers">Appetizers</option>
+                    <option value="main course">Main Course</option>
+                    <option value="dessert">Dessert</option>
                 </select>
             </div>
-
             <div class="form-group">
-                <label for="editIngredients">Update Ingredients:</label>
-                <textarea id="editIngredients" rows="5"></textarea>
+                <label for="editDescription">Update Description:</label>
+                <textarea id="editDescription" rows="3" required></textarea>
             </div>
-
+            <div class="form-group">
+                <label for="editIngredients">Update Ingredients (Comma separated):</label>
+                <textarea id="editIngredients" rows="3" required></textarea>
+            </div>
             <input type="submit" value="Save Changes">
         </form>
     </section>
 </div>
-<script src="{% static 'scripts/data.js' %}"></script>
 <script src="{% static 'scripts/admin.js' %}"></script>
 </body>
 </html>
