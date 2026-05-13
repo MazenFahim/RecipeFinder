@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: var(--parchment-dark);
   font-family: 'Lato', sans-serif;
 }
 
@@ -585,11 +585,12 @@ body {
   border-color: rgba(255, 100, 100, 0.8);
 }
 footer {
-    background-color: #f8f9fa; /* لون خلفية هادئ */
+    background: var(--espresso);
     padding: 20px;
     text-align: center;
-    margin-top: 50px; /* مسافة عن المحتوى فوقه */
-    border-top: 1px solid #ddd;
+    margin-top: 50px;
+    border-top: 2px solid var(--brick);
+    color: var(--wheat);
 }
 
 .logout-link {
