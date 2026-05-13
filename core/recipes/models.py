@@ -18,6 +18,8 @@ class Recipe(models.Model):
     course_name = models.CharField(max_length=20, choices=COURSE_CHOICES)
     description = models.TextField() 
     ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
+    image = models.CharField(max_length=255, blank=True, null=True)
+    prep_time = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.name

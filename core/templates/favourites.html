@@ -43,7 +43,7 @@
     {% for fav in favorites %}
       <div class="recipe-card">
         {% if fav.recipe.image %}
-          <img src="{{ fav.recipe.image.url }}" alt="{{ fav.recipe.name }}" style="width:100%; border-radius:10px;">
+          <img src="{% static 'images/' %}{{ fav.recipe.image }}" alt="{{ fav.recipe.name }}" style="width:100%; border-radius:10px;">
         {% endif %}
         <h3>{{ fav.recipe.name }}</h3>
         <p><strong>Course:</strong> {{ fav.recipe.get_course_name_display }}</p>

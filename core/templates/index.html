@@ -26,7 +26,7 @@
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'signup-page' %}">Sign Up</a></li>
       {% else %}
-        <li><a href="{% url 'logout' %}" class="logout-link">Logout</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
       {% endif %}
     </ul>
     <div class="nav-search">
@@ -71,16 +71,15 @@
       <div class="recipe-card">
         <div class="recipe-image-container" style="position: relative;">
           {% if recipe.image %}
-            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="recipe-img" style="width: 100%; border-radius: 15px;">
+            <img src="{% static 'images/' %}{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-img" style="width: 100%; border-radius: 15px;">
           {% else %}
             <img src="{% static 'images/default_recipe.png' %}" alt="Default" class="recipe-img">
           {% endif %}
           
-          <!-- تعديل الزر ليعمل مع الـ JavaScript الخارجي باستخدام data-id -->
           <button class="fav-btn" 
                   data-id="{{ recipe.id }}"
                   onclick="toggleFav(this)">
-              {% if recipe in favorites_list %} ❤️ {% else %} 🤍 {% endif %}
+              {% if recipe.id in favorites_list %} ❤️ {% else %} 🤍 {% endif %}
           </button>
         </div>
 

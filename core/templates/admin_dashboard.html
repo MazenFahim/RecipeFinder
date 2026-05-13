@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    {% load static %}
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../static/Admin_Styles/admin.css">
+    <link rel="stylesheet" href="{% static 'Admin_Styles/admin.css' %}">
 </head>
 <body>
 <nav class="navbar">
@@ -11,11 +11,11 @@
         Admin Panel
     </div>
     <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="view-recipe.html">View Recipes</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Log Out</a></li>
+        <li><a href="{% url 'admin-dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'admin-add-recipe' %}">Add Recipe</a></li>
+        <li><a href="{% url 'admin-view-recipes' %}">View Recipes</a></li>
+        <li><a href="{% url 'admin-edit-recipe' %}">Edit Recipe</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
     </ul>
 </nav>
 
@@ -30,24 +30,24 @@
         <ul class ="dashboard-menu">
             <li>
             <p>Add New Recipe:</p>
-            <a href="add-recipe.html"><button>Go to Add Recipe</button></a>
+            <a href="{% url 'admin-add-recipe' %}"><button>Go to Add Recipe</button></a>
             </li>
             <li>
             <p>View All Recipes:</p>
-            <a href="view-recipe.html"><button>View</button> </a>
+            <a href="{% url 'admin-view-recipes' %}"><button>View</button> </a>
             </li>
             <li>
             <p>Edit Recipe:</p>
-            <a href="edit-recipe.html"><button>Go to Edit Recipe</button></a>
+            <a href="{% url 'admin-edit-recipe' %}"><button>Go to Edit Recipe</button></a>
             </li>
             <li>
             <p>Delete Recipe</p>
-                <a href="view-recipe.html"><button id="deleteRecipeBtn" class="delete-btn">Delete a Recipe</button></a>
+                <a href="{% url 'admin-view-recipes' %}"><button id="deleteRecipeBtn" class="delete-btn">Delete a Recipe</button></a>
             </li>
         </ul>
     </section>
 </div>
-    <script src="../static/scripts/data.js"></script>
-    <script src="../static/scripts/admin.js"></script>
+    <script src="{% static 'scripts/data.js' %}"></script>
+    <script src="{% static 'scripts/admin.js' %}"></script>
 </body>
 </html>

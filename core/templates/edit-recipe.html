@@ -3,34 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/Admin_Styles/edit_recipe.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/edit_recipe.css' %}">
     <title>Edit Recipe</title>
 </head>
 
 <body>
-
-<!-- ===== NAVBAR ===== -->
-<!-- <nav class="navbar">
-    <a href="admin_dashboard.html" class="nav-logo">Recipe System</a>
-
-    <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Logout</a></li>
-    </ul>
-</nav> -->
 
 <nav class="navbar">
     <div class="nav-logo">
         Admin Panel
     </div>
     <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="view-recipe.html">View Recipes</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Log Out</a></li>
+        <li><a href="{% url 'admin-dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'admin-add-recipe' %}">Add Recipe</a></li>
+        <li><a href="{% url 'admin-view-recipes' %}">View Recipes</a></li>
+        <li><a href="{% url 'admin-edit-recipe' %}">Edit Recipe</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
     </ul>
 </nav>
 
@@ -39,7 +28,7 @@
         <h1>Edit Existing Recipe</h1>
     </header>
     <section>
-        <a href="admin_dashboard.html" class="back-link">&#8592; Back to Dashboard</a>
+        <a href="{% url 'admin-dashboard' %}" class="back-link">&#8592; Back to Dashboard</a>
 
         <div class="search-group">
             <div class="search-box">
@@ -76,7 +65,7 @@
         </form>
     </section>
 </div>
-<script src="../static/scripts/data.js"></script>
-<script src="../static/scripts/admin.js"></script>
+<script src="{% static 'scripts/data.js' %}"></script>
+<script src="{% static 'scripts/admin.js' %}"></script>
 </body>
 </html>

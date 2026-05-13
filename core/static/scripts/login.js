@@ -4,22 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     loginBtn.addEventListener('click', async (event) => {
         event.preventDefault();
 
-        const email = document.getElementById('email').value;
+        const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (!email || !password) {
-            alert("يرجى إدخال البريد الإلكتروني وكلمة المرور!");
+        if (!username || !password) {
+            alert("يرجى إدخال اسم المستخدم وكلمة المرور!");
             return;
         }
 
         const payload = {
-            username: email,
+            username: username,
             password: password
         };
 
         try {
-            // 2. Send the HTTP POST request to Django
-            const response = await fetch('http://127.0.0.1:8000/account/api/login/', {
+            const response = await fetch('/account/api/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,18 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            // 3. Handle the response
             if (response.ok) {
-                // Save user session info
                 sessionStorage.setItem('currentUser', data.user.email);
                 sessionStorage.setItem('isAdmin', data.user.is_admin);
-                console.log("تم تسجيل الدخول بنجاح لـ:", data.user.email);
 
-                // Redirect based on the account type (Admin vs Normal User)
                 if (data.user.is_admin) {
-                    window.location.href = 'admin_dashboard.html';
+                    window.location.href = '/recipes/admin/dashboard/';
                 } else {
-                    window.location.href = 'index.html';
+                    window.location.href = '/recipes/home/';
                 }
             } else {
                 alert("البريد الإلكتروني أو كلمة المرور غير صحيحة!");

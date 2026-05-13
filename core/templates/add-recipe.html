@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Recipe</title>
-    <link rel="stylesheet" href="../static/Admin_Styles/admin.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/admin.css' %}">
 </head>
 <body>
 
@@ -13,11 +14,11 @@
         Admin Panel
     </div>
     <ul class="nav-links">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="add-recipe.html">Add Recipe</a></li>
-        <li><a href="view-recipe.html">View Recipes</a></li>
-        <li><a href="edit-recipe.html">Edit Recipe</a></li>
-        <li><a href="index.html">Log Out</a></li>
+        <li><a href="{% url 'admin-dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'admin-add-recipe' %}">Add Recipe</a></li>
+        <li><a href="{% url 'admin-view-recipes' %}">View Recipes</a></li>
+        <li><a href="{% url 'admin-edit-recipe' %}">Edit Recipe</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
     </ul>
 </nav>
 
@@ -26,7 +27,7 @@
     <h1>Add New Recipe</h1>
     <h2><i>Fill in the details below to add a new recipe to the collection.</i></h2>
     <section>
-       <a href="admin_dashboard.html"> <h3 class="back">&#8592; Back to Dashboard</h3></a>
+       <a href="{% url 'admin-dashboard' %}"> <h3 class="back">&#8592; Back to Dashboard</h3></a>
        <br><br>
 
       <form id="addRecipeForm" action="#" method="POST">
@@ -84,7 +85,7 @@
       </form>
     </section>
 </div>
-<script src="../static/scripts/data.js"></script>
-<script src="../static/scripts/admin.js"></script>
+<script src="{% static 'scripts/data.js' %}"></script>
+<script src="{% static 'scripts/admin.js' %}"></script>
 </body>
 </html>

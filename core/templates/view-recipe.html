@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Recipes - Professional System</title>
-    <link rel="stylesheet" href="../static/Admin_Styles/view-recipe.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Admin_Styles/view-recipe.css' %}">
 </head>
 <body>
     <nav class="navbar">
@@ -12,23 +13,24 @@
             Admin Panel
         </div>
         <ul class="nav-links">
-            <li><a href="admin_dashboard.html">Dashboard</a></li>
-            <li><a href="add-recipe.html">Add Recipe</a></li>
-            <li><a href="view-recipe.html">View Recipes</a></li>
-            <li><a href="edit-recipe.html">Edit Recipe</a></li>
-            <li><a href="index.html">Log Out</a></li>
+            <li><a href="{% url 'admin-dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'admin-add-recipe' %}">Add Recipe</a></li>
+            <li><a href="{% url 'admin-view-recipes' %}">View Recipes</a></li>
+            <li><a href="{% url 'admin-edit-recipe' %}">Edit Recipe</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
         </ul>
     </nav>
 
     <div class="page">
         <header class="page-header">
             <h1>🍽️ All Recipes</h1>
-            <a href="admin_dashboard.html" class="back-link">← Back to Dashboard</a>
+            <a href="{% url 'admin-dashboard' %}" class="back-link">← Back to Dashboard</a>
         </header>
 
         <div id="recipesContainer"></div> 
     </div>
 
-    <script src="../static/scripts/data.js"></script>
-    <script src="../static/scripts/admin.js"></script>
+    <script src="{% static 'scripts/data.js' %}"></script>
+    <script src="{% static 'scripts/admin.js' %}"></script>
 </body>
+</html>

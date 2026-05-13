@@ -27,7 +27,7 @@
             <span id="sign-up-text">Sign up</span>
             <span class="subtitle">Sign up to continue</span>
 
-            <form method="POST" action="{% url 'api-signup' %}">
+            <form method="POST" action="{% url 'signup' %}">
                 {% csrf_token %}
                 <div class="input-group">
                     <label for="name">Name:</label>

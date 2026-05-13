@@ -1,4 +1,5 @@
-async function handleSignUp(isAdmin) {
+async function handleSignUp(event, isAdmin) {
+    event.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -8,7 +9,6 @@ async function handleSignUp(isAdmin) {
         return;
     }
 
-
     const payload = {
         username: email,
         email: email,
@@ -17,8 +17,7 @@ async function handleSignUp(isAdmin) {
     };
 
     try {
-        // 2. Make an HTTP POST request to your Django Backend
-        const response = await fetch('http://127.0.0.1:8000/account/api/signup/', {
+        const response = await fetch('/account/api/signup/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,16 +27,14 @@ async function handleSignUp(isAdmin) {
 
         const data = await response.json();
 
-        // 3. Handle the response
         if (response.ok) {
             if (isAdmin) {
                 alert("تم التسجيل كمسؤول بنجاح! سيتم تحويلك لصفحة تسجيل الدخول.");
             } else {
                 alert("تم التسجيل بنجاح! سيتم تحويلك لصفحة تسجيل الدخول.");
             }
-            window.location.href = "login.html";
+            window.location.href = "/";
         } else {
-            // Show errors from the backend (e.g., username/email already exists)
             alert("خطأ في التسجيل: " + JSON.stringify(data));
         }
     } catch (error) {
@@ -46,6 +43,5 @@ async function handleSignUp(isAdmin) {
     }
 }
 
-// Attach event listeners to both buttons
-document.getElementById('sign-up-btn').addEventListener('click', () => handleSignUp(false));
-document.getElementById('sign-up-admin-btn').addEventListener('click', () => handleSignUp(true));
+document.getElementById('sign-up-btn').addEventListener('click', (e) => handleSignUp(e, false));
+document.getElementById('sign-up-admin-btn').addEventListener('click', (e) => handleSignUp(e, true));
