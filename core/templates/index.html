@@ -65,7 +65,7 @@
 
   <div class="parentEg" id="recipesContainer">
     {% for recipe in recipes %}
-      <div class="recipe-card">
+      <div class="recipe-card" onclick="window.location.href='{% url 'recipe-detail-page' recipe.id %}'" style="cursor: pointer;">
         <div class="recipe-image-container" style="position: relative;">
           {% if recipe.image %}
             <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="recipe-img" style="width:100%; height:200px; object-fit:cover; border-radius:15px;">
@@ -73,7 +73,7 @@
             <img src="{% static 'images/default_recipe.png' %}" alt="Default" class="recipe-img" style="width:100%; height:200px; object-fit:cover; border-radius:15px;">
           {% endif %}
           
-          <button class="fav-btn" data-id="{{ recipe.id }}" onclick="toggleFav(this)">
+          <button class="fav-btn" data-id="{{ recipe.id }}" onclick="event.stopPropagation(); toggleFav(this)">
               {% if recipe.id in favorites_list %} ❤️ {% else %} 🤍 {% endif %}
           </button>
         </div>

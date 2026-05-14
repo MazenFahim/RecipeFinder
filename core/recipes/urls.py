@@ -6,6 +6,7 @@ from . import admin_views
 
 urlpatterns = [
     path('home/', views.recipe_home_view, name='home'),
+    path('<int:pk>/detail/', views.recipe_detail_view, name='recipe-detail-page'),
 
     path('api/recipes/', views.ListCreate.as_view(), name='recipe-list'),
     path('api/recipes/<int:pk>/', views.GetUpdateDelete.as_view(), name='recipe-detail'),

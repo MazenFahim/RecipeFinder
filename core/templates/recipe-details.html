@@ -1,29 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe details</title>
+    <title>{{ recipe.name }} - RecipeFinder</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'Admin_Styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <style>
+        .detail-page { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+        .detail-header { position: relative; margin-bottom: 30px; }
+        .detail-header img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 20px; }
+        .detail-fav-btn { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; }
+        .detail-fav-btn:hover { transform: scale(1.1); }
+        .detail-title { font-size: 2rem; margin: 0 0 10px; color: #333; }
+        .detail-meta { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .detail-meta .course-badge { background: #eee; padding: 4px 12px; border-radius: 5px; font-size: 14px; color: #555; }
+        .detail-meta .prep-time { font-weight: bold; color: #ff4d4d; font-size: 16px; }
+        .detail-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; }
+        .detail-section { margin-bottom: 30px; }
+        .detail-section h2 { font-size: 1.4rem; color: #333; margin-bottom: 15px; border-bottom: 2px solid #ff4d4d; padding-bottom: 8px; display: inline-block; }
+        .ingredients-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+        .ingredients-list li { background: #f9f9f9; border: 1px solid #eee; padding: 8px 16px; border-radius: 20px; font-size: 14px; color: #444; }
+        .steps-list { list-style: none; padding: 0; counter-reset: step; }
+        .steps-list li { counter-increment: step; padding: 12px 15px 12px 45px; position: relative; background: #fafafa; border-radius: 10px; margin-bottom: 10px; font-size: 15px; color: #444; line-height: 1.6; }
+        .steps-list li::before { content: counter(step); position: absolute; left: 12px; top: 12px; background: #ff4d4d; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #ff4d4d; text-decoration: none; font-weight: bold; font-size: 16px; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-      <div class="nav-logo">
-        🍽️ RecipeFinder
-      </div>
+    {% csrf_token %}
 
+    <nav class="navbar">
+      <div class="nav-logo">🍽️ RecipeFinder</div>
       <ul class="nav-links">
         <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'favorite_list' %}">Favorites</a></li>
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'signup-page' %}">Sign Up</a></li>
+        <li><a href="{% url 'favorite_list' %}">Favourites</a></li>
+        {% if not user.is_authenticated %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'signup-page' %}">Sign Up</a></li>
+        {% else %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
       </ul>
-
-      <div class="nav-search">
-        <input type="text" placeholder="Search recipes...">
-        <button>🔍</button>
-      </div>
     </nav>
+
+    <div class="detail-page">
+        <a href="{% url 'home' %}" class="back-link">&larr; Back to Recipes</a>
+
+        <div class="detail-header">
+            {% if recipe.image %}
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+            {% else %}
+                <img src="{% static 'images/default_recipe.png' %}" alt="{{ recipe.name }}">
+            {% endif %}
+            <button class="detail-fav-btn" data-id="{{ recipe.id }}" onclick="toggleFav(this)">
+                {% if is_favorite %} ❤️ {% else %} 🤍 {% endif %}
+            </button>
+        </div>
+
+        <h1 class="detail-title">{{ recipe.name }}</h1>
+
+        <div class="detail-meta">
+            <span class="course-badge">{{ recipe.get_course_name_display }}</span>
+            <span class="prep-time">⏱️ {{ recipe.prep_time }} دقيقة</span>
+        </div>
+
+        <p class="detail-desc">{{ recipe.description }}</p>
+
+        {% with ingredients=recipe.ingredients.all %}
+            {% if ingredients %}
+                <div class="detail-section">
+                    <h2>المكونات</h2>
+                    <ul class="ingredients-list">
+                        {% for ing in ingredients %}
+                            <li>{{ ing.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% if steps_list %}
+            <div class="detail-section">
+                <h2>طريقة التحضير</h2>
+                <ol class="steps-list">
+                    {% for step in steps_list %}
+                        <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="{% static 'scripts/favourites.js' %}"></script>
 </body>
 </html>

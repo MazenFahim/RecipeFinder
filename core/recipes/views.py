@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
@@ -32,6 +32,22 @@ def recipe_home_view(request):
         'recipes': recipes,
         'favorites_list': list(favorites_list),
         'query': query
+    })
+
+
+@login_required
+def recipe_detail_view(request, pk):
+    recipe = get_object_or_404(
+        Recipe.objects.prefetch_related('ingredients'), pk=pk
+    )
+    is_favorite = Favorite.objects.filter(
+        user=request.user, recipe=recipe
+    ).exists()
+    steps_list = recipe.steps.split('\n') if recipe.steps else []
+    return render(request, 'recipe-details.html', {
+        'recipe': recipe,
+        'is_favorite': is_favorite,
+        'steps_list': steps_list,
     })
 
 

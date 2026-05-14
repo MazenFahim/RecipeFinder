@@ -33,4 +33,6 @@ class RecipeSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         data['ingredients'] = [i.name for i in instance.ingredients.all()]
+        if data.get('steps'):
+            data['steps'] = data['steps'].split('\n')
         return data

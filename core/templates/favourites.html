@@ -46,7 +46,7 @@
 
   <div class="parentEg" id="favContainer" style="display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; justify-content: center;">
     {% for fav in favorites %}
-      <div class="recipe-card" style="width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #fff;">
+      <div class="recipe-card" onclick="window.location.href='{% url 'recipe-detail-page' fav.recipe.id %}'" style="width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #fff; cursor: pointer;">
 
         <div class="recipe-image-container" style="position: relative;">
           {% if fav.recipe.image %}
@@ -57,7 +57,7 @@
 
           <button class="fav-btn active" 
                   data-id="{{ fav.recipe.id }}" 
-                  onclick="toggleFav(this)"
+                  onclick="event.stopPropagation(); toggleFav(this)"
                   style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.8); border-radius: 50%; padding: 5px;">
             ❤️
           </button>

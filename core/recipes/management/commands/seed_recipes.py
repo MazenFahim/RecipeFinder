@@ -71,8 +71,14 @@ class Command(BaseCommand):
             if not name:
                 continue
 
-            if Recipe.objects.filter(name=name).exists():
-                self.stdout.write(f"Skipping existing: {name}")
+            existing = Recipe.objects.filter(name=name).first()
+            if existing:
+                if item.get("steps") and not existing.steps:
+                    existing.steps = "\n".join(item["steps"])
+                    existing.save()
+                    self.stdout.write(f"Updated steps for: {name}")
+                else:
+                    self.stdout.write(f"Skipping existing: {name}")
                 skipped += 1
                 continue
 
@@ -81,11 +87,15 @@ class Command(BaseCommand):
             course = determine_course(filters)
             prep_time = extract_prep_time(item.get("time", ""))
 
+            steps = item.get("steps", [])
+            steps_text = "\n".join(steps) if steps else ""
+
             recipe = Recipe(
                 name=name,
                 course_name=course,
                 description=desc,
                 prep_time=prep_time,
+                steps=steps_text,
             )
 
             src_img = item.get("image", "")
