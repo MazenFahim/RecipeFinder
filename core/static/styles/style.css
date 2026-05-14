@@ -494,6 +494,12 @@ body {
     transform 0.15s ease,
     box-shadow 0.15s ease,
     background 0.2s ease;
+
+  /*remove this 2 code after make filters on*/ 
+  cursor: default;
+  pointer-events: none;
+
+    
 }
 
 /* Grain overlay via pseudo-element */
