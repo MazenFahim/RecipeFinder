@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4u3r29ueolx6!)ol1q6*1e3gusj9@$g5gh9vnkqt$&y#@k^fy)'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-4u3r29ueolx6!)ol1q6*1e3gusj9@$g5gh9vnkqt$&y#@k^fy)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 # DRF Settings
 REST_FRAMEWORK = {
